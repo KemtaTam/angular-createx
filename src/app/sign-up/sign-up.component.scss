@@ -1,0 +1,37 @@
+.sign-up{
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 120px;
+}
+
+.wrap{
+	width: 100%;
+	max-width: 486px;
+	margin: 0 auto;
+	padding: 48px;
+	border: 1px solid black;
+	border-radius: 4px;
+	position: relative;
+}
+
+header{
+	text-align: center;
+
+	&>button{
+		position: absolute;
+		top: 28px;
+		right: 28px;
+		background-color: transparent;
+		border: none;
+	}
+
+	&>p{
+		
+	}
+}
+
+h1 {
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 150%;
+}
