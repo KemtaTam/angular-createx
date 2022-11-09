@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@400;700&display=swap");
 
 /* ----------default------------ */
 html {
@@ -55,6 +55,28 @@ a {
 }
 /* ----------default------------ */
 
-body{
-	font-family: 'Lato';
+body {
+	font-family: "Lato";
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 150%;
+	color: #424551;
+}
+
+h1 {
+	font-weight: 900;
+	font-size: 46px;
+	line-height: 130%;
+}
+
+h2 {
+	font-weight: 700;
+	font-size: 28px;
+	color: #1e212c;
+}
+
+h3 {
+	font-weight: 700;
+	font-size: 16px;
+	color: #424551;
 }

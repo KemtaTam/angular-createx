@@ -1,62 +1,117 @@
-<div class="sign-up">
+<div class="sign-up" [ngStyle]="{display: modalService.isSignUpVisible ? 'flex' : 'none'}">
 	<div class="wrap">
-		<header>
-			<button>
-				<img src="../../assets/images/Cross.svg" alt="close" />
-			</button>
-			<h1>Sign up</h1>
-			<p>
-				Registration takes less than a minute but gives you full control
-				over your studying.
-			</p>
-		</header>
+		<div class="container">
+			<!-- вынести в отдельную компоненту -->
+			<header>
+				<button (click)="modalService.changeVisible('signup')">
+					<img src="../../assets/images/Cross.svg" alt="close" />
+				</button>
+				<h2>Sign up</h2>
+				<p>
+					Registration takes less than a minute but gives you full
+					control over your studying.
+				</p>
+			</header>
 
-		<form>
-			<label for="fullname" class="label">Full Name</label>
-			<input
-				type="text"
-				id="fullname"
-				placeholder="Your full name"
-				class="input"
-			/>
+			<form>
+				<label for="fullname" class="label">Full Name</label>
+				<input
+					type="text"
+					id="fullname"
+					placeholder="Your full name"
+					class="input"
+				/>
 
-			<label for="email" class="label">Email</label>
-			<input
-				type="text"
-				id="email"
-				placeholder="Your working email"
-				class="input"
-			/>
+				<label for="email-signup" class="label">Email</label>
+				<input
+					type="email"
+					id="email-signup"
+					placeholder="Your working email"
+					class="input"
+				/>
 
-			<label for="password" class="label">Password</label>
-			<input type="password" id="password" class="input" />
+				<label for="password" class="label">Password</label>
+				<div class="password">
+					<input
+						[type]="isVisibleForPassword ? 'text' : 'password'"
+						id="password"
+						class="input"
+					/>
+					<button
+						class="eye"
+						type="button"
+						(click)="isVisibleForPassword = !isVisibleForPassword"
+					>
+						<img src="../../assets/images/Eye.svg" alt="eye" />
+					</button>
+				</div>
 
-			<label for="confirm-password" class="label">Confirm Password</label>
-			<input type="password" id="confirm-password" class="input" />
+				<label for="confirm-password" class="label"
+					>Confirm Password</label
+				>
+				<div class="password">
+					<input
+						[type]="
+							isVisibleForConfirmPassword ? 'text' : 'password'
+						"
+						id="confirm-password"
+						class="input"
+					/>
+					<button
+						class="eye"
+						type="button"
+						(click)="
+							isVisibleForConfirmPassword =
+								!isVisibleForConfirmPassword
+						"
+					>
+						<img src="../../assets/images/Eye.svg" alt="eye" />
+					</button>
+				</div>
 
-			<input type="checkbox" id="remember" />
-			<label for="remember">Remember me</label>
+				<div class="remember">
+					<input type="checkbox" id="remember" />
+					<label for="remember">Remember me</label>
+				</div>
 
-			<button type="submit" class="b-submit">Sign up</button>
-		</form>
+				<button type="submit" class="b-submit">Sign up</button>
+			</form>
 
-		<p>Already have an account? <a href="">Sign in</a></p>
+			<p>Already have an account? <a href="">Sign in</a></p>
+		</div>
 
-		<footer class="footer">
+		<!-- вынести в отдельную компоненту -->
+		<footer>
 			<p>Or sign in with</p>
 			<div class="social">
 				<ul class="ul">
 					<li>
-						<a href=""><img src="" alt="fb" /></a>
+						<a href=""
+							><img
+								src="../../assets/images/icons/Facebook.svg"
+								alt="fb"
+						/></a>
 					</li>
 					<li>
-						<a href=""><img src="" alt="google" /></a>
+						<a href=""
+							><img
+								src="../../assets/images/icons/Google.svg"
+								alt="google"
+						/></a>
 					</li>
 					<li>
-						<a href=""><img src="" alt="twitter" /></a>
+						<a href=""
+							><img
+								src="../../assets/images/icons/Twitter.svg"
+								alt="twitter"
+						/></a>
 					</li>
 					<li>
-						<a href=""><img src="" alt="in" /></a>
+						<a href=""
+							><img
+								src="../../assets/images/icons/Linked-In.svg"
+								alt="in"
+						/></a>
 					</li>
 				</ul>
 			</div>

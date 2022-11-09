@@ -1,0 +1,151 @@
+@import '../app.component.scss';
+
+.sign-up {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	background-color: #1e212cc2; 
+	overflow-y: auto;
+}
+
+.container {
+	padding: 46px;
+	padding-bottom: 24px;
+
+	& > p {
+		padding-top: 24px;
+
+		& > a {
+			color: #ff3f3a;
+		}
+	}
+}
+
+.wrap {
+	height: max-content;
+	margin-top: 120px;
+	margin-bottom: 120px;
+	max-width: 486px;
+	position: relative;
+	border-radius: 4px;
+	background-color: #ffffff;
+}
+
+.input[type="email"] {
+	padding: 11px 16px 12px;
+	margin-top: 8px;
+	margin-bottom: 20px;
+	border-radius: 4px;
+	border: 1px solid #d7dadd;
+	width: 100%;
+}
+
+header {
+	text-align: center;
+
+	& > button {
+		position: absolute;
+		top: 28px;
+		right: 28px;
+		background-color: transparent;
+		border: none;
+	}
+
+	& > p {
+		color: #787a80;
+		padding-top: 24px;
+	}
+}
+
+form {
+	padding-top: 24px;
+	display: flex;
+	flex-direction: column;
+
+	& > .password {
+		border-radius: 4px;
+		border: 1px solid #d7dadd;
+		position: relative;
+		margin-top: 8px;
+		margin-bottom: 20px;
+		border-radius: 4px;
+		border: 1px solid #d7dadd;
+		width: 100%;
+		height: 44px;
+
+		& > input {
+			color: #424551;
+			padding: 11px 37px 12px 16px;
+			height: 100%;
+			border-radius: 4px;
+			width: 100%;
+			border: none;
+		}
+
+		& > .eye {
+			position: absolute;
+			top: 12px;
+			right: 10px;
+			background-color: transparent;
+			border: none;
+		}
+	}
+
+	& > .remember {
+		margin-bottom: 24px;
+		display: flex;
+		justify-content: space-between;
+
+		& > .remember-wrap {
+			display: flex;
+
+			& > input {
+				margin-right: 12px;
+				width: 16px;
+			}
+		}
+
+		& > a {
+			color: #ff3f3a;
+		}
+	}
+
+	& > .b-submit {
+		background: $b-color;
+		border-radius: 4px;
+		color: white;
+		font-weight: 700;
+		line-height: 100%;
+		height: 44px;
+		border: none;
+	}
+}
+
+footer {
+	position: relative;
+	padding-top: 24px;
+	border-top: 1px solid #e5e8ed;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	& > p {
+		color: #787a80;
+	}
+	& > hr {
+		position: absolute;
+	}
+
+	& > .social {
+		padding-top: 16px;
+		margin-bottom: 48px;
+		& > ul {
+			display: flex;
+			gap: 12px;
+		}
+	}
+}

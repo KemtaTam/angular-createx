@@ -1,1 +1,84 @@
-<p>sign-in works!</p>
+<div class="sign-up" [ngStyle]="{display: modalService.isSignInVisible ? 'flex' : 'none'}">
+	<div class="wrap">
+		<div class="container">
+			<!-- вынести в отдельную компоненту -->
+			<header>
+				<button type="button" (click)="modalService.changeVisible('signin')">
+					<img src="../../assets/images/Cross.svg" alt="close" />
+				</button>
+				<h2>Sign in</h2>
+				<p>
+					Sign in to your account using email and password provided
+					during registration.
+				</p>
+			</header>
+
+			<form>
+				<label for="email_signin" class="label">Email</label>
+				<input
+					type="email"
+					id="email_signin"
+					placeholder="Your working email"
+					class="input"
+				/>
+
+				<label for="password-signin" class="label">Password</label>
+				<div class="password">
+					<input [type]="isVisibleForPassword ? 'text' : 'password'" id="password-signin" class="input" />
+					<button class="eye" type="button" (click)="isVisibleForPassword = !isVisibleForPassword">
+						<img src="../../assets/images/Eye.svg" alt="eye" />
+					</button>
+				</div>
+
+				<div class="remember">
+					<div class="remember-wrap">
+						<input type="checkbox" id="remember-signin" />
+						<label for="remember-signin">Keep me signed in</label>
+					</div>
+					<a href="">Forgot password?</a>
+				</div>
+
+				<button type="submit" class="b-submit">Sign in</button>
+			</form>
+
+			<p>Don't have an account? <a href="">Sign up</a></p>
+		</div>
+
+		<!-- вынести в отдельную компоненту -->
+		<footer>
+			<p>Or sign in with</p>
+			<div class="social">
+				<ul class="ul">
+					<li>
+						<a href=""
+							><img
+								src="../../assets/images/icons/Facebook.svg"
+								alt="fb"
+						/></a>
+					</li>
+					<li>
+						<a href=""
+							><img
+								src="../../assets/images/icons/Google.svg"
+								alt="google"
+						/></a>
+					</li>
+					<li>
+						<a href=""
+							><img
+								src="../../assets/images/icons/Twitter.svg"
+								alt="twitter"
+						/></a>
+					</li>
+					<li>
+						<a href=""
+							><img
+								src="../../assets/images/icons/Linked-In.svg"
+								alt="in"
+						/></a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+</div>
