@@ -1,4 +1,4 @@
-@import "../../app.component.scss";
+@import "../../../app.component.scss";
 
 section {
 	padding-top: 168px;
@@ -67,13 +67,6 @@ form {
 		& > .agree {
 			display: flex;
 			align-items: flex-start;
-		}
-		& > .agree input {
-			margin-right: 12px;
-			width: 16px;
-		}
-		& > .agree label {
-			max-width: 287px;
 		}
 
 		& > button {

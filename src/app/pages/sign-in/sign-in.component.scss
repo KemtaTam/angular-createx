@@ -1,4 +1,4 @@
-@import "../app.component.scss";
+@import '../../app.component.scss';
 
 .sign-up {
 	position: fixed;
@@ -36,7 +36,7 @@
 	background-color: #ffffff;
 }
 
-#email-signup, #fullname{
+.input[type="email"] {
 	padding: 11px 16px 12px;
 	margin-top: 8px;
 	margin-bottom: 20px;
@@ -99,10 +99,10 @@ form {
 	& > .remember {
 		margin-bottom: 24px;
 		display: flex;
+		justify-content: space-between;
 
-		& > input {
-			margin-right: 12px;
-			width: 16px;
+		& > a {
+			color: #ff3f3a;
 		}
 	}
 
@@ -135,7 +135,6 @@ footer {
 	& > .social {
 		padding-top: 16px;
 		margin-bottom: 48px;
-		
 		& > ul {
 			display: flex;
 			gap: 12px;

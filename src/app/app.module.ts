@@ -3,14 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { ContactInfoComponent } from './contacts/contact-info/contact-info.component';
-import { ContactQuestionsComponent } from './contacts/contact-questions/contact-questions.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ContactInfoComponent } from './pages/contacts/contact-info/contact-info.component';
+import { ContactQuestionsComponent } from './pages/contacts/contact-questions/contact-questions.component';
 import { ModalService } from './services/modal.service';
+import { MyCheckboxComponent } from './components/UI/my-checkbox/my-checkbox.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ModalService } from './services/modal.service';
     HeaderComponent,
     FooterComponent,
     ContactInfoComponent,
-    ContactQuestionsComponent
+    ContactQuestionsComponent,
+    MyCheckboxComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,15 @@
-<div class="sign-up" [ngStyle]="{display: modalService.isSignInVisible ? 'flex' : 'none'}">
+<div
+	class="sign-up"
+	[ngStyle]="{ display: modalService.isSignInVisible ? 'flex' : 'none' }"
+>
 	<div class="wrap">
 		<div class="container">
 			<!-- вынести в отдельную компоненту -->
 			<header>
-				<button type="button" (click)="modalService.changeVisible('signin')">
+				<button
+					type="button"
+					(click)="modalService.changeVisible('signin')"
+				>
 					<img src="../../assets/images/Cross.svg" alt="close" />
 				</button>
 				<h2>Sign in</h2>
@@ -24,16 +30,23 @@
 
 				<label for="password-signin" class="label">Password</label>
 				<div class="password">
-					<input [type]="isVisibleForPassword ? 'text' : 'password'" id="password-signin" class="input" />
-					<button class="eye" type="button" (click)="isVisibleForPassword = !isVisibleForPassword">
+					<input
+						[type]="isVisibleForPassword ? 'text' : 'password'"
+						id="password-signin"
+						class="input"
+					/>
+					<button
+						class="eye"
+						type="button"
+						(click)="isVisibleForPassword = !isVisibleForPassword"
+					>
 						<img src="../../assets/images/Eye.svg" alt="eye" />
 					</button>
 				</div>
 
 				<div class="remember">
 					<div class="remember-wrap">
-						<input type="checkbox" id="remember-signin" />
-						<label for="remember-signin">Keep me signed in</label>
+						<app-my-checkbox text="Keep me signed in"></app-my-checkbox>
 					</div>
 					<a href="">Forgot password?</a>
 				</div>
