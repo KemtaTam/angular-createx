@@ -12,6 +12,7 @@ import { ContactInfoComponent } from './pages/contacts/contact-info/contact-info
 import { ContactQuestionsComponent } from './pages/contacts/contact-questions/contact-questions.component';
 import { ModalService } from './services/modal.service';
 import { MyCheckboxComponent } from './components/UI/my-checkbox/my-checkbox.component';
+import { IconsComponent } from './components/UI/icons/icons.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MyCheckboxComponent } from './components/UI/my-checkbox/my-checkbox.com
     FooterComponent,
     ContactInfoComponent,
     ContactQuestionsComponent,
-    MyCheckboxComponent
+    MyCheckboxComponent,
+    IconsComponent
   ],
   imports: [
     BrowserModule,

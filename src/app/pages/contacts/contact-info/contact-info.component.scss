@@ -48,19 +48,7 @@ section {
 
 	& > h3 {
 		text-transform: uppercase;
-	}
-
-	& > .social {
-		padding-top: 24px;
-		
-		& > ul {
-			display: flex;
-			gap: 32px;
-
-			& > li > a > img{
-				width: 24px;
-			}
-		}
+		padding-bottom: 24px;
 	}
 }
 

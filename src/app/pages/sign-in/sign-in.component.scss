@@ -120,6 +120,7 @@ form {
 footer {
 	position: relative;
 	padding-top: 24px;
+	padding-bottom: 48px;
 	border-top: 1px solid #e5e8ed;
 	display: flex;
 	align-items: center;
@@ -127,17 +128,9 @@ footer {
 
 	& > p {
 		color: #787a80;
+		padding-bottom: 16px;
 	}
 	& > hr {
 		position: absolute;
-	}
-
-	& > .social {
-		padding-top: 16px;
-		margin-bottom: 48px;
-		& > ul {
-			display: flex;
-			gap: 12px;
-		}
 	}
 }

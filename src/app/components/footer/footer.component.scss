@@ -26,19 +26,7 @@ footer {
 			color: white;
 			opacity: 0.6;
 			font-size: 12px;
-		}
-
-		& > .social {
-			padding-top: 38px;
-			
-			& > ul {
-				display: flex;
-				gap: 20px;
-
-				& > li > a > img {
-					width: 24px;
-				}
-			}
+			padding-bottom: 38px;
 		}
 	}
 
@@ -104,7 +92,7 @@ footer {
 			display: flex;
 			gap: 8px;
 
-			& > p{
+			& > a{
 				color: white;
 			}
 		}

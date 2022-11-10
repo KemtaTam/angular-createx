@@ -79,41 +79,18 @@
 			<p>Already have an account? <a href="">Sign in</a></p>
 		</div>
 
-		<!-- todo: вынести в отдельную компоненту -->
 		<footer>
 			<p>Or sign in with</p>
-			<div class="social">
-				<ul class="ul">
-					<li>
-						<a href=""
-							><img
-								src="../../assets/images/icons/Facebook.svg"
-								alt="fb"
-						/></a>
-					</li>
-					<li>
-						<a href=""
-							><img
-								src="../../assets/images/icons/Google.svg"
-								alt="google"
-						/></a>
-					</li>
-					<li>
-						<a href=""
-							><img
-								src="../../assets/images/icons/Twitter-red.svg"
-								alt="twitter"
-						/></a>
-					</li>
-					<li>
-						<a href=""
-							><img
-								src="../../assets/images/icons/Linked-In.svg"
-								alt="in"
-						/></a>
-					</li>
-				</ul>
-			</div>
+			<app-icons
+					[socials]="[
+						'fb',
+						'google',
+						'twitter',
+						'in'
+					]"
+					width="20px"
+					gap="12px"
+				></app-icons>
 		</footer>
 	</div>
 </div>

@@ -1,0 +1,18 @@
+.social > ul {
+	display: flex;
+
+	& > li {
+		height: max-content;
+
+		& > a > div {
+			background-color: #787a80;
+			transition: background-color 0.2s ease-in-out;
+			/* height: 30px;
+			width: 30px; */
+
+			&:hover {
+				background-color: #ff3f3a;
+			}
+		}
+	}
+}
