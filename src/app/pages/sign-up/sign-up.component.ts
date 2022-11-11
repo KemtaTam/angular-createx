@@ -10,6 +10,7 @@ import { ModalService } from '../../services/modal.service';
 export class SignUpComponent implements OnInit {
 	isVisibleForPassword = false;
 	isVisibleForConfirmPassword = false;
+	socials = ['fb', 'google', 'twitter', 'in'];
 
 	constructor(public modalService: ModalService) {}
 

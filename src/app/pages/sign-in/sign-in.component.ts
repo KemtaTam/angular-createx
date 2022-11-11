@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 	isVisibleForPassword = false;
+	socials = ['fb', 'google', 'twitter', 'in'];
 
 	constructor(public modalService: ModalService) {}
 
-	ngOnInit(): void {
-	}
+	ngOnInit(): void {}
 }

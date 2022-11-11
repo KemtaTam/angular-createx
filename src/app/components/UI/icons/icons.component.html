@@ -1,9 +1,7 @@
 <div class="social">
 	<ul class="ul" [ngStyle]="{gap}">
 		<li *ngFor="let social of socials">
-			<a href="" style="-webkit-mask: url('{{urls[social]}}') no-repeat center; 
-				mask: url('{{urls[social]}}') no-repeat center;"
-			>
+			<a href="" [ngStyle]="getStyleForSocialLink(social)">
 				<div [ngStyle]="{width, height}"></div>
 			</a>
 		</li>

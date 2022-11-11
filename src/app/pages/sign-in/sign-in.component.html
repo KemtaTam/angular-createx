@@ -4,13 +4,12 @@
 >
 	<div class="wrap">
 		<div class="container">
-			<!-- вынести в отдельную компоненту -->
 			<header>
 				<button
 					type="button"
 					(click)="modalService.changeVisible('signin')"
 				>
-					<img src="../../assets/images/Cross.svg" alt="close" />
+					<img src="./../../../assets/images/Cross.svg" alt="close" />
 				</button>
 				<h2>Sign in</h2>
 				<p>
@@ -40,7 +39,7 @@
 						type="button"
 						(click)="isVisibleForPassword = !isVisibleForPassword"
 					>
-						<img src="../../assets/images/Eye.svg" alt="eye" />
+						<img src="./../../../assets/images/Eye.svg" alt="eye" />
 					</button>
 				</div>
 
@@ -60,12 +59,7 @@
 		<footer>
 			<p>Or sign in with</p>
 			<app-icons
-					[socials]="[
-						'fb',
-						'google',
-						'twitter',
-						'in'
-					]"
+					[socials]="socials"
 					width="20px"
 					gap="12px"
 				></app-icons>
