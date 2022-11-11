@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="en"><head>
+		<meta charset="utf-8">
+		<title>WbHomeWork</title>
+		<base href="https://kemtatam.github.io/wb-home-work/">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		<script src="https://api-maps.yandex.ru/2.0-stable/?apikey=a0bf96cd-7cb6-4fb8-9798-65e81633ac9e&amp;load=package.standard&amp;lang=ru-RU" type="text/javascript"></script>
+		<script type="text/javascript">
+			ymaps.ready(init);
+			var myMap, 
+				myPlacemark;
+	
+			function init(){ 
+				myMap = new ymaps.Map ("map", {
+					center: [55.76, 37.64],
+					zoom: 7
+				}); 
+				
+				myPlacemark = new ymaps.Placemark([55.76, 37.64], {
+					hintContent: 'Москва!',
+					balloonContent: 'Столица России'
+				});
+				
+				myMap.geoObjects.add(myPlacemark);
+			}
+		</script>
+	<style>@import"https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@400;700&display=swap";html{box-sizing:border-box}*,*:after,*:before{box-sizing:inherit}body{margin:0}body{font-family:Lato;font-weight:400;font-size:14px;line-height:150%;color:#424551}</style><link rel="stylesheet" href="styles.f5606cf153e56063.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.f5606cf153e56063.css"></noscript></head>
+	<body>
+		<app-root></app-root>
+	<script src="runtime.d2a0cbfe7d408480.js" type="module"></script><script src="polyfills.fdc65f9c2cc41d84.js" type="module"></script><script src="main.3c9590d52235b8f3.js" type="module"></script>
+
+</body></html>
