@@ -7,22 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactInfoComponent implements OnInit {
 	emailToTalk = 'hello@createx.com';
-	phone = '(405) 555-0128'
-	socials = [
-		'fb',
-		'twitter',
-		'youtube',
-		'telegram',
-		'insta',
-		'in'
-	]
+	phone = 9097725001;
+	socials = ['fb', 'twitter', 'youtube', 'telegram', 'insta', 'in'];
 
 	constructor() {}
 
 	ngOnInit(): void {
 	}
 
-	getNumber(): number{
-		return Number(this.phone.replace(/[^0-9]/g, ''))
+	getMaskNumber(): string {
+		return this.phone
+			.toString()
+			.replace(/^(\d{3})(\d{3})(\d{4})$/, '($1) $2-$3');
 	}
 }
