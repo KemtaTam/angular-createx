@@ -1,4 +1,7 @@
-<div class="sign-up" [ngStyle]="{display: modalService.isSignUpVisible ? 'flex' : 'none'}">
+<div
+	class="sign-up"
+	[ngStyle]="{ display: modalService.isSignUpVisible ? 'flex' : 'none' }"
+>
 	<div class="wrap">
 		<div class="container">
 			<!-- вынести в отдельную компоненту -->
@@ -81,11 +84,11 @@
 
 		<footer>
 			<p>Or sign in with</p>
-			<app-icons
+			<div class="icons-wrapper">
+				<app-icons
 					[socials]="socials"
-					width="20px"
-					gap="12px"
 				></app-icons>
+			</div>
 		</footer>
 	</div>
 </div>

@@ -130,7 +130,9 @@ footer {
 		color: #787a80;
 		padding-bottom: 16px;
 	}
-	& > hr {
-		position: absolute;
+
+	& > .icons-wrapper{
+		width: 116px;
+		height: 20px;
 	}
 }

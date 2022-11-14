@@ -125,17 +125,9 @@ footer {
 		color: #787a80;
 		padding-bottom: 16px;
 	}
-	& > hr {
-		position: absolute;
-	}
 
-	& > .social {
-		padding-top: 16px;
-		margin-bottom: 48px;
-		
-		& > ul {
-			display: flex;
-			gap: 12px;
-		}
+	& > .icons-wrapper{
+		width: 116px;
+		height: 20px;
 	}
 }

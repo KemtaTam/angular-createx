@@ -45,7 +45,9 @@
 
 				<div class="remember">
 					<div class="remember-wrap">
-						<app-my-checkbox text="Keep me signed in"></app-my-checkbox>
+						<app-my-checkbox
+							text="Keep me signed in"
+						></app-my-checkbox>
 					</div>
 					<a href="">Forgot password?</a>
 				</div>
@@ -58,11 +60,11 @@
 
 		<footer>
 			<p>Or sign in with</p>
-			<app-icons
+			<div class="icons-wrapper">
+				<app-icons
 					[socials]="socials"
-					width="20px"
-					gap="12px"
 				></app-icons>
+			</div>
 		</footer>
 	</div>
 </div>
