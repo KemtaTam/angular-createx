@@ -19,5 +19,11 @@ export class ContactInfoComponent implements OnInit {
 
 	constructor() {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.getNumber()
+	}
+
+	getNumber(){
+		return this.phone.replace(/[^0-9]/g, '')
+	}
 }

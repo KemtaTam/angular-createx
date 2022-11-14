@@ -12,7 +12,7 @@
 					/>
 					<div class="text">
 						<p class="key">Talk to us:</p>
-						<a href="mailto:'{{ emailToTalk }}'" class="value">{{
+						<a [href]="'mailto:' + emailToTalk" class="value">{{
 							emailToTalk
 						}}</a>
 					</div>
@@ -24,7 +24,7 @@
 					/>
 					<div class="text">
 						<p class="key">Call us:</p>
-						<a href="tel:+4055550128" class="value">{{ phone }}</a>
+						<a [href]="'tel:+' + getNumber()" class="value">{{ phone }}</a>
 					</div>
 				</div>
 				<div class="contact-el">

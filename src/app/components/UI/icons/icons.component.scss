@@ -11,10 +11,12 @@
 			height: 100%;
 			width: 24px;
 	
-			& > a > div {
+			& > a {
+				display: inline-block;
 				background-color: #787a80;
 				transition: background-color 0.2s ease-in-out;
 				height: 100%;
+				width: 100%;
 	
 				&:hover {
 					background-color: #ff3f3a;
