@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 export interface Urls {
-	[key: string]: string
+	[key: string]: string;
 }
 @Component({
 	selector: 'app-icons',
@@ -22,12 +22,18 @@ export class IconsComponent implements OnInit {
 	@Input() socials: string[] = [];
 	@Input() gap: string = '32px';
 	@Input() width: string = '26px';
-	@Input() height: string = this.width
+	@Input() height: string = this.width;
 
 	constructor() {}
 
-	getStyleForSocialLink(social: string){
-		return {webkitMask: 'url(' + this.urls[social] + ') no-repeat center'}
+	getStyleForSocialLink(social: string): {
+		webkitMask: string;
+		mask: string;
+	} {
+		return {
+			webkitMask: 'url(' + this.urls[social] + ') no-repeat center',
+			mask: 'url(' + this.urls[social] + ') no-repeat center',
+		};
 	}
 
 	ngOnInit(): void {}

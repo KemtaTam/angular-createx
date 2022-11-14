@@ -20,10 +20,9 @@ export class ContactInfoComponent implements OnInit {
 	constructor() {}
 
 	ngOnInit(): void {
-		this.getNumber()
 	}
 
-	getNumber(){
-		return this.phone.replace(/[^0-9]/g, '')
+	getNumber(): number{
+		return Number(this.phone.replace(/[^0-9]/g, ''))
 	}
 }
