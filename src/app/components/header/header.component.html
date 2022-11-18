@@ -3,20 +3,20 @@
 		<nav>
 			<img src="./../../../assets/images/logo.svg" alt="logo" />
 			<ul class="ul">
-				<li>
-					<a href=""><h3>About Us</h3></a>
+				<li routerLinkActive="active">
+					<a routerLink="/about"><h3>About Us</h3></a>
 				</li>
-				<li>
-					<a href=""><h3>Courses</h3></a>
+				<li routerLinkActive="active">
+					<a routerLink="/courses"><h3>Courses</h3></a>
 				</li>
-				<li>
-					<a href=""><h3>Events</h3></a>
+				<li routerLinkActive="active">
+					<a routerLink="/events"><h3>Events</h3></a>
 				</li>
-				<li>
-					<a href=""><h3>Blog</h3></a>
+				<li routerLinkActive="active">
+					<a routerLink="/single-post"><h3>Blog</h3></a>
 				</li>
-				<li>
-					<a href=""><h3>Contacts</h3></a>
+				<li routerLinkActive="active">
+					<a routerLink="/contacts"><h3>Contacts</h3></a>
 				</li>
 			</ul>
 		</nav>
@@ -24,9 +24,21 @@
 			<button>Get consultation</button>
 			<div class="autorization">
 				<img src="./../../../assets/images/Profile.svg" alt="profile" />
-				<h3 (click)="modalService.changeVisible('signin')">Log in</h3>
+				<button
+					class="auth-button"
+					type="button"
+					(click)="openDialogLogin()"
+				>
+					<h3>Log in</h3>
+				</button>
 				<span>/</span>
-				<h3 (click)="modalService.changeVisible('signup')">Register</h3> 
+				<button
+					class="auth-button"
+					type="button"
+					(click)="openDialogRegister()"
+				>
+					<h3>Register</h3>
+				</button>
 			</div>
 		</div>
 	</div>

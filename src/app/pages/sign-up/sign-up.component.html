@@ -1,21 +1,17 @@
-<div
-	class="sign-up"
-	[ngStyle]="{ display: modalService.isSignUpVisible ? 'flex' : 'none' }"
->
+<div class="sign-up">
 	<div class="wrap">
 		<div class="container">
 			<!-- вынести в отдельную компоненту -->
 			<header>
-				<button (click)="modalService.changeVisible('signup')">
+				<button>
 					<img src="./../../../assets/images/Cross.svg" alt="close" />
 				</button>
 				<h2>Sign up</h2>
 				<p>
-					Registration takes less than a minute but gives you full
-					control over your studying.
+					Registration takes less than a minute but gives you full control over
+					your studying.
 				</p>
 			</header>
-
 			<form>
 				<label for="fullname" class="label">Full Name</label>
 				<input
@@ -49,24 +45,17 @@
 					</button>
 				</div>
 
-				<label for="confirm-password" class="label"
-					>Confirm Password</label
-				>
+				<label for="confirm-password" class="label">Confirm Password</label>
 				<div class="password">
 					<input
-						[type]="
-							isVisibleForConfirmPassword ? 'text' : 'password'
-						"
+						[type]="isVisibleForConfirmPassword ? 'text' : 'password'"
 						id="confirm-password"
 						class="input"
 					/>
 					<button
 						class="eye"
 						type="button"
-						(click)="
-							isVisibleForConfirmPassword =
-								!isVisibleForConfirmPassword
-						"
+						(click)="isVisibleForConfirmPassword = !isVisibleForConfirmPassword"
 					>
 						<img src="./../../../assets/images/Eye.svg" alt="eye" />
 					</button>
@@ -85,9 +74,7 @@
 		<footer>
 			<p>Or sign in with</p>
 			<div class="icons-wrapper">
-				<app-icons
-					[socials]="socials"
-				></app-icons>
+				<app-icons [socials]="socials"></app-icons>
 			</div>
 		</footer>
 	</div>

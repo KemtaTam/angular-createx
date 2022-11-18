@@ -1,4 +1,3 @@
-import { ModalService } from '../../services/modal.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,7 +9,7 @@ export class SignInComponent implements OnInit {
 	isVisibleForPassword = false;
 	socials = ['fb', 'google', 'twitter', 'in'];
 
-	constructor(public modalService: ModalService) {}
+	constructor() {}
 
 	ngOnInit(): void {}
 }

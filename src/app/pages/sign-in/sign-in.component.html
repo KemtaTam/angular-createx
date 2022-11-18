@@ -1,14 +1,8 @@
-<div
-	class="sign-up"
-	[ngStyle]="{ display: modalService.isSignInVisible ? 'flex' : 'none' }"
->
+<div class="sign-up">
 	<div class="wrap">
 		<div class="container">
 			<header>
-				<button
-					type="button"
-					(click)="modalService.changeVisible('signin')"
-				>
+				<button type="button">
 					<img src="./../../../assets/images/Cross.svg" alt="close" />
 				</button>
 				<h2>Sign in</h2>
@@ -61,9 +55,7 @@
 		<footer>
 			<p>Or sign in with</p>
 			<div class="icons-wrapper">
-				<app-icons
-					[socials]="socials"
-				></app-icons>
+				<app-icons [socials]="socials"></app-icons>
 			</div>
 		</footer>
 	</div>

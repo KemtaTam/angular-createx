@@ -1,5 +1,9 @@
 @import "../../app.component.scss";
 
+.active > a > h3{
+	color: #ff3f3a;
+}
+
 .wrap {
 	width: 100%;
 	padding: 20px 345px;
@@ -15,17 +19,13 @@
 			display: flex;
 			gap: 40px;
 		}
-
-		& h3:hover {
-			color: #ff3f3a;
-		}
 	}
 
 	& > .right-part {
 		display: flex;
 		align-items: center;
 
-		& button {
+		& > button {
 			background: $b-color;
 			border: none;
 			border-radius: 4px;
@@ -47,9 +47,10 @@
 				font-weight: 700;
 				font-size: 16px;
 			}
-			
-			& > h3{
-				cursor: pointer;
+
+			.auth-button{
+				background-color: transparent;
+				border: none;
 			}
 		}
 	}

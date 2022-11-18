@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>WbHomeWork</title>
-		<base href="/" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/x-icon" href="favicon.ico" />
-		<script
-			src="https://api-maps.yandex.ru/2.0-stable/?apikey=a0bf96cd-7cb6-4fb8-9798-65e81633ac9e&load=package.standard&lang=ru-RU"
-			type="text/javascript"
-		></script>
-		<script type="text/javascript">
-			ymaps.ready(init);
-			var myMap, 
-				myPlacemark;
-	
-			function init(){ 
-				myMap = new ymaps.Map ("map", {
-					center: [55.76, 37.64],
-					zoom: 7
-				}); 
-				
-				myPlacemark = new ymaps.Placemark([55.76, 37.64], {
-					hintContent: 'Москва!',
-					balloonContent: 'Столица России'
-				});
-				
-				myMap.geoObjects.add(myPlacemark);
-			}
-		</script>
-	  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-	<body>
-		<app-root></app-root>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>WbHomeWork</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script
+      src="https://api-maps.yandex.ru/2.0-stable/?apikey=a0bf96cd-7cb6-4fb8-9798-65e81633ac9e&load=package.standard&lang=ru-RU"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      ymaps.ready(init);
+      var myMap, myPlacemark;
+
+      function init() {
+        myMap = new ymaps.Map("map", {
+          center: [55.76, 37.64],
+          zoom: 7,
+        });
+
+        myPlacemark = new ymaps.Placemark([55.76, 37.64], {
+          hintContent: "Москва!",
+          balloonContent: "Столица России",
+        });
+
+        myMap.geoObjects.add(myPlacemark);
+      }
+    </script>
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
 </html>

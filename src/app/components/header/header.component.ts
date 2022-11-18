@@ -1,17 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-
-import { ModalService } from './../../services/modal.service';
+import { SignUpComponent } from './../../pages/sign-up/sign-up.component';
+import { SignInComponent } from './../../pages/sign-in/sign-in.component';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent{
 
-  constructor(public modalService: ModalService) { }
+  constructor(private dialogTrigger: MatDialog) { }
 
-  ngOnInit(): void {
+  openDialogLogin(){
+	this.dialogTrigger.open(SignInComponent);
   }
+  openDialogRegister(){
+	this.dialogTrigger.open(SignUpComponent);
+  }
+  
 
 }
