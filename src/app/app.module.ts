@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,25 +13,27 @@ import { ContactQuestionsComponent } from './pages/contacts/contact-questions/co
 import { ModalService } from './services/modal.service';
 import { MyCheckboxComponent } from './components/UI/my-checkbox/my-checkbox.component';
 import { IconsComponent } from './components/UI/icons/icons.component';
+import { SinglePostComponent } from "./pages/single-post/single-post.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SignUpComponent,
-    SignInComponent,
-    ContactsComponent,
-    HeaderComponent,
-    FooterComponent,
-    ContactInfoComponent,
-    ContactQuestionsComponent,
-    MyCheckboxComponent,
-    IconsComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [ModalService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        SignUpComponent,
+        SignInComponent,
+        ContactsComponent,
+        HeaderComponent,
+        FooterComponent,
+        ContactInfoComponent,
+        ContactQuestionsComponent,
+        MyCheckboxComponent,
+        IconsComponent
+    ],
+    providers: [ModalService],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        SinglePostComponent
+    ]
 })
 export class AppModule { }

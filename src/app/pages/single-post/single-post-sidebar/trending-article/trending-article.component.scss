@@ -1,0 +1,25 @@
+@import "../../../../app.component.scss";
+
+.article {
+	display: flex;
+	gap: 20px;
+	padding-top: 24px;
+
+	img {
+		width: 100px;
+		height: 100px;
+	}
+
+	.wrap {
+		p {
+			padding-top: 4px;
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 160%;
+			color: #1e212c;
+		}
+		p:hover {
+			color: $primary;
+		}
+	}
+}

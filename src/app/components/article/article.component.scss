@@ -1,0 +1,67 @@
+.article {
+	max-width: 390px;
+
+	.back-img {
+		position: relative;
+
+		.type {
+			position: absolute;
+			top: 12px;
+			left: 12px;
+			border-radius: 4px;
+			padding: 1px 8px;
+			display: flex;
+			gap: 4px;
+			background-color: white;
+		}
+
+		& > img{
+			filter: grayscale(1);
+		}
+	}
+
+	.meta {
+		padding-top: 16px;
+		display: flex;
+		align-items: center;
+		gap: 12px;
+
+		.category {
+			font-weight: 700;
+			font-size: 14px;
+			color: #787a80;
+		}
+
+		.hr {
+			height: 12px;
+			width: 1px;
+			background-color: #787a80;
+		}
+	}
+
+	& > h3 {
+		font-size: 20px;
+		color: #1e212c;
+		padding-top: 8px;
+		line-height: 150%;
+	}
+
+	.text {
+		padding-top: 8px;
+		color: #424551;
+		font-size: 16px;
+	}
+
+	.action {
+		padding-top: 16px;
+
+		a {
+			display: flex;
+			gap: 10px;
+
+			& > h3 {
+				color: #1e212c;
+			}
+		}
+	}
+}

@@ -1,0 +1,69 @@
+<aside class="aside">
+	<div class="search">
+		<input class="input" placeholder="Search blog..." />
+		<button class="b-search" type="button">
+			<img
+				src="assets/images/single-post/single-post-sidebar/search.svg"
+				alt="search"
+			/>
+		</button>
+	</div>
+
+	<div class="author">
+		<h3>Author</h3>
+		<div class="author-info">
+			<img
+				class="ava"
+				src="assets/images/single-post/single-post-sidebar/woman.png"
+				alt="woman"
+			/>
+			<div class="wrap">
+				<div class="name-activity">
+					<h3 class="name">Kristin Watson</h3>
+					<p class="gray-text">Curator of Marketing Course</p>
+				</div>
+				<div class="icons-wrap">
+					<app-icons
+						[socials]="['insta', 'twitter', 'in']"
+					></app-icons>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="articles">
+		<h3>Trending Articles</h3>
+		<app-trending-article
+			alt="face"
+			date="September 4, 2020"
+			src="assets/images/single-post/single-post-sidebar/face.png"
+			text="What is traffic arbitrage and does it really make money?"
+		></app-trending-article>
+		<app-trending-article
+			alt="pot"
+			date="July 15, 2020"
+			src="assets/images/single-post/single-post-sidebar/pot.png"
+			text="Startup: how to build a team that will live longer than a year"
+		></app-trending-article>
+		<app-trending-article
+			alt="flos"
+			date="August 2, 2020"
+			src="assets/images/single-post/single-post-sidebar/flos.png"
+			text="What to do if you want to get feedback on the product"
+		></app-trending-article>
+	</div>
+
+	<div class="tags">
+		<h3>Tags</h3>
+		<app-single-post-tags
+			[tags]="[
+				'marketing',
+				'recruiting',
+				'coding',
+				'learning',
+				'HR',
+				'self-development'
+			]"
+		></app-single-post-tags>
+	</div>
+</aside>

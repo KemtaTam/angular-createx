@@ -1,0 +1,57 @@
+@import "../../../app.component.scss";
+
+.also-like {
+	padding-top: 120px;
+
+	& > h3 {
+		color: #1e212c;
+		text-transform: uppercase;
+	}
+
+	.slider-wrapper {
+		padding-top: 8px;
+		display: flex;
+		justify-content: space-between;
+
+		h1 {
+			color: #1e212c;
+		}
+
+		.b-wrapper {
+			display: flex;
+			gap: 24px;
+
+			button {
+				background-color: transparent;
+				border: none;
+				width: 24px;
+				height: 24px;
+			}
+		}
+	}
+
+	.article-wrapper {
+		padding-top: 60px;
+		display: flex;
+		gap: 30px;
+	}
+
+	.more {
+		width: 100%;
+		padding-top: 80px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 40px;
+
+		button {
+			background: $b-color;
+			border-radius: 4px;
+			color: white;
+			font-weight: 700;
+			line-height: 52px;
+			border: none;
+			padding: 0 40px;
+		}
+	}
+}

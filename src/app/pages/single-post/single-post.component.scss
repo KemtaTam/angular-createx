@@ -1,0 +1,15 @@
+.single-post {
+	min-height: calc(100vh - 396px);
+	padding-top: 75px;
+}
+
+.container {
+	width: 100%;
+	max-width: 1265px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+.post-el-sidebar-wrapper{
+	display: flex;
+}

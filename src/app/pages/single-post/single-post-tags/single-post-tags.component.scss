@@ -1,0 +1,22 @@
+@import '../../../app.component.scss';
+
+.wrap{
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.tag {
+	display: inline-block;
+	border: 1px solid #d7dadd;
+	border-radius: 4px;
+	padding: 6px 16px;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 150%;
+	color: #787A80;
+}
+.tag:hover {
+	background-color: $primary;
+	color: #FFFFFF;
+}

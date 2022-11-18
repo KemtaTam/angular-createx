@@ -1,0 +1,40 @@
+<mat-card>
+	<article class="article">
+		<div class="back-img">
+			<img appColorful [src]="backImg" [alt]="alt" />
+			<div class="type">
+				<img
+					[src]="articleType === 'Podcast' ? podcastSrc : articleSrc"
+					[alt]="articleType === 'Podcast' ? 'mic' : 'fiels'"
+				/>
+				<div class="type-text">{{ articleType }}</div>
+			</div>
+		</div>
+
+		<div class="meta">
+			<div class="category">{{ category }}</div>
+			<div class="hr"></div>
+			<app-meta-data type="date" [text]="date"></app-meta-data>
+			<div *ngIf="duration" class="hr"></div>
+			<app-meta-data
+				*ngIf="duration"
+				type="duration"
+				[text]="duration"
+			></app-meta-data>
+		</div>
+
+		<h3>{{ title }}</h3>
+		<p class="text">
+			{{ text }}
+		</p>
+		<div class="action">
+			<a href="">
+				<h3>{{ articleType === "Podcast" ? "Listen" : "Read" }}</h3>
+				<img
+					src="assets/images/single-post/also-like/Line-right-red.svg"
+					alt="Line-right"
+				/>
+			</a>
+		</div>
+	</article>
+</mat-card>
