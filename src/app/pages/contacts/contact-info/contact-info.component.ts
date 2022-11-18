@@ -1,23 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { ContactsDataService } from './../../../services/contacts-data.service';
+import { Component } from '@angular/core';
 
 @Component({
 	selector: 'app-contact-info',
 	templateUrl: './contact-info.component.html',
 	styleUrls: ['./contact-info.component.scss'],
 })
-export class ContactInfoComponent implements OnInit {
-	emailToTalk = 'hello@createx.com';
-	phone = 9097725001;
+export class ContactInfoComponent {
 	socials = ['fb', 'twitter', 'youtube', 'telegram', 'insta', 'in'];
 
-	constructor() {}
-
-	ngOnInit(): void {
-	}
-
-	getMaskNumber(): string {
-		return this.phone
-			.toString()
-			.replace(/^(\d{3})(\d{3})(\d{4})$/, '($1) $2-$3');
-	}
+	constructor(public contactsDataService: ContactsDataService) {}
 }

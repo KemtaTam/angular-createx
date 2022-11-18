@@ -1,4 +1,4 @@
 <div class="wrap">
-	<img [src]="urls[type]" [alt]="getAltFromSrc()" />
+	<img [src]="urls[type]" [alt]="urls[type] | alt" />
 	<span>{{ text }}</span>
 </div>

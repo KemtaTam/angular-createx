@@ -20,33 +20,14 @@
 
 	<div class="article-wrapper">
 		<app-article
-			alt="roadtothedream"
-			articleType="Podcast"
-			backImg="assets/images/single-post/also-like/roadtothedream.png"
-			category="Design"
-			date="July 28, 2020"
-			duration="36 min"
-			title="What are color profiles and how they work in graphic design"
-			text="Aliquam vulputate hendrerit quam sollicitudin urna enim viverra
-			gravida. Consectetur urna arcu eleifend..."
-		></app-article>
-		<app-article
-			backImg="assets/images/single-post/also-like/notebook.png"
-			alt="notebook"
-			articleType="Article"
-			category="Development"
-			date="September 1, 2020"
-			title="How to choose the first programming language for a beginner"
-			text="Turpis sed at magna laoreet gravida consequat tortor placerat. Gravida vitae aliquet enim egestas dui..."
-		></app-article>
-		<app-article
-			backImg="assets/images/single-post/also-like/chel.png"
-			alt="chel"
-			articleType="Article"
-			category="Design"
-			date="August 8, 2020"
-			title="Should you choose a creative profession if you are attracted to creativity?"
-			text="Curabitur nisl tincidunt eros venenatis vestibulum ac placerat. Tortor, viverra sed vulputate ultrices..."
+			*ngFor="let article of alsoLikeArticles"
+			[articleType]="article.articleType"
+			[backImg]="article.backImg"
+			[category]="article.category"
+			[date]="article.date"
+			[duration]="article.duration"
+			[title]="article.title"
+			[text]="article.text"
 		></app-article>
 	</div>
 

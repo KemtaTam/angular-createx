@@ -1,11 +1,11 @@
 <mat-card>
 	<article class="article">
 		<div class="back-img">
-			<img appColorful [src]="backImg" [alt]="alt" />
+			<img appColorful [src]="backImg" [alt]="backImg | alt" />
 			<div class="type">
 				<img
 					[src]="articleType === 'Podcast' ? podcastSrc : articleSrc"
-					[alt]="articleType === 'Podcast' ? 'mic' : 'fiels'"
+					[alt]="articleType === 'Podcast' ? (podcastSrc | alt) : (articleSrc | alt)"
 				/>
 				<div class="type-text">{{ articleType }}</div>
 			</div>

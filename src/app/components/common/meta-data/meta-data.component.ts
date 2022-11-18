@@ -14,13 +14,4 @@ export class MetaDataComponent {
 
 	@Input() type: 'date' | 'duration' = 'date';
 	@Input() text = '';
-
-	getAltFromSrc() {
-		const regExpForAlt = new RegExp(/\/\b\w+\./);
-		
-		let alt = this.urls[this.type].match(regExpForAlt);
-		if (alt) {
-			return alt[0].slice(1, -1);
-		} else return '';
-	}
 }

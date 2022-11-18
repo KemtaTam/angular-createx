@@ -1,23 +1,20 @@
-import { SignUpComponent } from './../../pages/sign-up/sign-up.component';
-import { SignInComponent } from './../../pages/sign-in/sign-in.component';
+import { SignUpComponent } from './../../components/sign-up/sign-up.component';
+import { SignInComponent } from './../../components/sign-in/sign-in.component';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+	selector: 'app-header',
+	templateUrl: './header.component.html',
+	styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent{
+export class HeaderComponent {
+	constructor(private dialogTrigger: MatDialog) {}
 
-  constructor(private dialogTrigger: MatDialog) { }
-
-  openDialogLogin(){
-	this.dialogTrigger.open(SignInComponent);
-  }
-  openDialogRegister(){
-	this.dialogTrigger.open(SignUpComponent);
-  }
-  
-
+	openDialogLogin(): void {
+		this.dialogTrigger.open(SignInComponent);
+	}
+	openDialogRegister(): void {
+		this.dialogTrigger.open(SignUpComponent);
+	}
 }

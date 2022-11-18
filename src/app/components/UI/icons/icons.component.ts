@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 export interface Urls {
 	[key: string]: string;
@@ -8,15 +8,15 @@ export interface Urls {
 	templateUrl: './icons.component.html',
 	styleUrls: ['./icons.component.scss'],
 })
-export class IconsComponent implements OnInit {
+export class IconsComponent {
 	urls: Urls = {
-		fb: './../../../../assets/images/icons/Facebook.svg',
-		insta: './../../../../assets/images/icons/Instagram.svg',
-		telegram: './../../../../assets/images/icons/telegram.svg',
-		in: './../../../../assets/images/icons/Linked-In.svg',
-		google: './../../../../assets/images/icons/Google.svg',
-		twitter: './../../../../assets/images/icons/Twitter.svg',
-		youtube: './../../../../assets/images/icons/YouTube.svg',
+		fb: 'assets/images/icons/Facebook.svg',
+		insta: 'assets/images/icons/Instagram.svg',
+		telegram: 'assets/images/icons/telegram.svg',
+		in: 'assets/images/icons/Linked-In.svg',
+		google: 'assets/images/icons/Google.svg',
+		twitter: 'assets/images/icons/Twitter.svg',
+		youtube: 'assets/images/icons/YouTube.svg',
 	};
 
 	@Input() socials: string[] = [];
@@ -35,6 +35,4 @@ export class IconsComponent implements OnInit {
 			mask: 'url(' + this.urls[social] + ') no-repeat center',
 		};
 	}
-
-	ngOnInit(): void {}
 }

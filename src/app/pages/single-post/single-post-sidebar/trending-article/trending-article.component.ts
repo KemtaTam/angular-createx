@@ -8,6 +8,5 @@ import { Component, Input } from '@angular/core';
 export class TrendingArticleComponent {
 	@Input() text = ''
 	@Input() src = ''
-	@Input() alt = ''
 	@Input() date = ''
 }

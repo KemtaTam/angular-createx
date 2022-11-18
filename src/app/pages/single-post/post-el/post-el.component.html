@@ -1,4 +1,3 @@
-<!-- todo: вынести динамические данные в ts -->
 <article class="article">
 	<header class="header">
 		<nav class="nav">
@@ -12,12 +11,12 @@
 			</ul>
 		</nav>
 		<h1 class="h1">
-			HR statistics: job search, interviews, hiring and recruiting
+			{{post.title}}
 		</h1>
 		<div class="add-info-wrap">
 			<div class="add-info">
-				<app-meta-data type="date" text="August 3, 2020"></app-meta-data>
-				<app-meta-data type="duration" text="4 min read"></app-meta-data>
+				<app-meta-data type="date" [text]="post.date"></app-meta-data>
+				<app-meta-data type="duration" [text]="post.duration"></app-meta-data>
 			</div>
 			<div class="share">
 				<h3>Share:</h3>
@@ -30,7 +29,7 @@
 
 	<div class="back-img">
 		<img
-			src="assets/images/single-post/post-el/back-image.jpg"
+			[src]="post.backImg"
 			alt="back-image"
 		/>
 	</div>
@@ -126,7 +125,7 @@
 		<div class="tags">
 			<h3>Tags:</h3>
 			<app-single-post-tags
-				[tags]="['learning', 'HR', 'self-development']"
+				[tags]="post.tags"
 			></app-single-post-tags>
 		</div>
 		<div class="share">

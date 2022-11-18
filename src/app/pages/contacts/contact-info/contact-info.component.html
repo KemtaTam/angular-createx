@@ -6,36 +6,33 @@
 
 			<div class="contact-info">
 				<div class="contact-el">
-					<img
-						src="./../../../../assets/images/contacts/Chat.svg"
-						alt="Chat"
-					/>
+					<img src="assets/images/contacts/Chat.svg" alt="Chat" />
 					<div class="text">
 						<p class="key">Talk to us:</p>
-						<a [href]="'mailto:' + emailToTalk" class="value">{{
-							emailToTalk
-						}}</a>
+						<a
+							[href]="'mailto:' + contactsDataService.emailToTalk"
+							class="value"
+							>{{ contactsDataService.emailToTalk }}</a
+						>
 					</div>
 				</div>
 				<div class="contact-el">
-					<img
-						src="./../../../../assets/images/contacts/iPhone.svg"
-						alt="iPhone"
-					/>
+					<img src="assets/images/contacts/iPhone.svg" alt="iPhone" />
 					<div class="text">
 						<p class="key">Call us:</p>
-						<a [href]="'tel:+7' + phone" class="value">{{ getMaskNumber() }}</a>
+						<a
+							[href]="'tel:+7' + contactsDataService.phone"
+							class="value"
+							>{{ contactsDataService.getMaskNumber() }}</a
+						>
 					</div>
 				</div>
 				<div class="contact-el">
-					<img
-						src="./../../../../assets/images/contacts/Vector.svg"
-						alt="Vector"
-					/>
+					<img src="assets/images/contacts/Vector.svg" alt="Vector" />
 					<div class="text">
 						<p class="key">Address:</p>
 						<p class="value">
-							2464 Royal Ln. Mesa, New Jersey 45463, USA
+							{{contactsDataService.address}}
 						</p>
 					</div>
 				</div>
