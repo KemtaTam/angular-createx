@@ -28,6 +28,8 @@ import { ContactQuestionsComponent } from './pages/contacts/contact-questions/co
 import { ContactInfoComponent } from './pages/contacts/contact-info/contact-info.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { AltPipe } from './pipes/alt.pipe';
+import { FormComponent } from './components/form/form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [
@@ -52,6 +54,7 @@ import { AltPipe } from './pipes/alt.pipe';
 		SinglePostSidebarComponent,
 		SinglePostAlsoLikeComponent,
 		SinglePostSubscribeComponent,
+  FormComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -59,6 +62,7 @@ import { AltPipe } from './pipes/alt.pipe';
 		BrowserAnimationsModule,
 		MatCardModule,
 		MatDialogModule,
+		ReactiveFormsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent],

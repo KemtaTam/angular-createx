@@ -1,0 +1,21 @@
+<div class="wrap">
+	<form [formGroup]="form" (ngSubmit)="submit()">
+		<label for="city" class="label">City</label>
+		<input formControlName="city" id="city" placeholder="Your city" class="input" />
+		<label for="street" class="label">Street</label>
+		<input formControlName="street" id="street" placeholder="Your street" class="input" />
+		<label for="house" class="label">House</label>
+		<input formControlName="house" id="house" placeholder="Your house" class="input" />
+
+		<div class="card" formGroupName="numbers">
+			<h2>Ваши номера</h2>
+			<button class="b-number" type="button" (click)="addNumbers()">Добавить номер</button>
+			<div class="numbers-wrap" *ngFor="let control of getControls(); let idx = index">
+				<label>Номер {{idx + 1}}</label>
+				<input type="text" [formControlName]="idx"/>
+			</div>
+	   </div>
+	   
+		<button [disabled]="form.invalid" type="submit" class="b-submit">Go</button>
+	</form>
+</div>

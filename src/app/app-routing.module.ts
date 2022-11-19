@@ -1,3 +1,4 @@
+import { FormComponent } from './components/form/form.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -7,6 +8,7 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 const routes: Routes = [
 	{path: "contacts", component: ContactsComponent},
 	{path: "single-post", component: SinglePostComponent},
+	{path: "form", component: FormComponent},
 ];
 
 @NgModule({
