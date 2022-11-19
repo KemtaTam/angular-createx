@@ -17,4 +17,6 @@ export class HeaderComponent {
 	openDialogRegister(): void {
 		this.dialogTrigger.open(SignUpComponent);
 	}
+
+	
 }

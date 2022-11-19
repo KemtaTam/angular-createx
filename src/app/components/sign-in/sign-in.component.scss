@@ -9,7 +9,7 @@
 	display: flex;
 	justify-content: center;
 	background-color: #1e212cc2; 
-	overflow-y: auto;
+	overflow: auto;
 	z-index: 1;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .wrap {
-	height: max-content;
+	height: min-content;
 	margin-top: 120px;
 	margin-bottom: 120px;
 	max-width: 486px;
