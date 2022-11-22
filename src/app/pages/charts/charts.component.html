@@ -1,0 +1,17 @@
+<div class="charts">
+	<div *ngFor="let item of chartsWithOptions">
+		<h1>id: {{item.id}}</h1>
+		<button>lLALA</button>
+		<canvas
+			id="{{item.id}}"
+			baseChart
+			[width]="600"
+			[height]="600"
+			[type]="'line'"
+			[legend]="item.lineChartLegend"
+			[options]="item.lineChartOptions"
+			[data]="item.lineChartData"
+		>
+		</canvas>
+	</div>
+</div>
