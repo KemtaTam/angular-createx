@@ -1,15 +1,21 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import {
+	Component,
+	OnInit,
+	ElementRef,
+	QueryList,
+	ViewChildren,
+} from '@angular/core';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
 
 interface ChartsWithOptions {
-	id: number
+	id: number;
 	lineChartLegend: boolean;
 	lineChartOptions: ChartOptions<'line'>;
 	lineChartData: ChartConfiguration<'line'>['data'];
 }
 
-export interface ChartData {
+interface ChartData {
 	src_office_id: number;
 	office_name: string;
 	dt_date: string;
@@ -19,51 +25,17 @@ export interface ChartData {
 	qty_return: number;
 }
 
-let chartEl = {
-	id: 228,
-	dates: [
-		'2022-10-15',
-		'2022-10-16',
-		'2022-10-17',
-		'2022-10-18',
-		'2022-10-19',
-		'2022-11-03',
-		'2022-11-05',
-		'2022-11-06',
-		'2022-11-07',
-		'2022-11-08',
-	],
-	additionalInfo: [
-		{
-			label: 'qty_orders',
-			values: [1, 1, 1, 1, 1, 2, 2, 2, 2, 1],
-		},
-		{
-			label: 'qty_new',
-			values: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		},
-		{
-			label: 'qty_delivered',
-			values: [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-		},
-		{
-			label: 'qty_return',
-			values: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		},
-	],
-};
-
-interface AdditionalInfo {
-	label: string; 
+interface AdditionalData {
+	label: string;
 	data: number[];
-	tension: number,
-	borderColor: string,
-	fill: boolean,
+	tension: number;
+	fill: boolean;
 }
+
 interface ChartEl {
 	id: number;
 	dates: string[];
-	additionalInfo: AdditionalInfo[];
+	additionalData: AdditionalData[];
 }
 
 @Component({
@@ -72,12 +44,13 @@ interface ChartEl {
 	styleUrls: ['./charts.component.scss'],
 })
 export class ChartsComponent implements OnInit {
+	charts: ChartEl[] = [];
+	data: ChartData[] = [];
+	chartsWithOptions: ChartsWithOptions[] = [];
 	uniqueIds = new Set<number>();
-	charts: ChartEl[] = []
-	fullScreen = false
+	fullScreen = false;
 
-	public data: ChartData[] = [];
-	public chartsWithOptions: ChartsWithOptions[] = [];
+	@ViewChildren('chart') chart!: QueryList<ElementRef>;
 
 	constructor(private http: HttpClient) {}
 
@@ -90,58 +63,102 @@ export class ChartsComponent implements OnInit {
 		});
 	}
 
-	getUniqueId() {
+	fullScreenHandler(id: number): void {
+		const chart = this.chart.toArray()[id].nativeElement;
+		const chartButton = chart.children[0];
+		const chartCanvas = chart.children[1];
+
+		if (chartCanvas.dataset['full'] === 'false') {
+			chartCanvas.style.width = '50vw';
+			chartCanvas.style.height = '100vh';
+			chartCanvas.className = 'canvas-fullScreen';
+			chartCanvas.dataset['full'] = 'true';
+
+			chart.closest('body').style.overflow = 'hidden';
+			chart.className = 'chart-fullScreen';
+
+			chartButton.className = 'button-fullScreen';
+		} else {
+			chartCanvas.style.width = '600px';
+			chartCanvas.style.height = '600px';
+			chartCanvas.dataset['full'] = 'false';
+			chartCanvas.className = 'canvas';
+
+			chart.closest('body').style.overflow = 'auto';
+			chart.className = 'chart';
+
+			chartButton.className = '';
+		}
+	}
+
+	getUniqueId(): void {
 		for (let el of this.data) {
 			this.uniqueIds.add(el.src_office_id);
 		}
 	}
 
-	configureData() {
+	configureData(): void {
 		for (let id of this.uniqueIds) {
-			let chartEl: ChartData[] = [];
+			let chartElData: ChartData[] = [];
 			let dates = [];
-			let additionalInfo: AdditionalInfo[] = [];
-			const forbiddenKeys = ['src_office_id', 'office_name', 'dt_date'];
-			const colors = ['black', 'green', 'red', 'blue']
+			let additionalData: AdditionalData[] = [];
+			const unnecessaryKeys = ['src_office_id', 'office_name', 'dt_date'];
 
 			//only this id
-			chartEl = this.data.filter((dataEl) => dataEl.src_office_id === id);
+			chartElData = this.data.filter(
+				(dataEl) => dataEl.src_office_id === id
+			);
+
 			//all dates with this id
-			for (let el of chartEl) {
+			for (let el of chartElData) {
 				dates.push(el.dt_date);
 			}
-			//nice keys
-			let keys = Object.keys(chartEl[0]);
-			for (let forbiddenKey of forbiddenKeys) {
-				keys = keys.filter((el) => !el.includes(forbiddenKey));
+
+			//keys that will be displayed on the chart
+			let keys = Object.keys(chartElData[0]); //take the keys of any such element
+			for (let unnecessaryKey of unnecessaryKeys) {
+				keys = keys.filter((el) => !el.includes(unnecessaryKey));
 			}
-			//create additional data
-			let i = 0
-			for (let key of keys) {
-				let arrWithValuesOfThisKey: any = [];	//todo
-				for (let el of chartEl) {
-					arrWithValuesOfThisKey.push(el[key as keyof ChartData]);
-				}
-				additionalInfo.push({
-					label: key,
-					data: arrWithValuesOfThisKey,
-					tension: 0.5,
-					borderColor: colors[i],	//todo: цвет разный чтобы был
-					fill: true,
-				});
-				i++
-			}
-			//add nice data to result chart
+
+			additionalData = this.createAdditionalData(keys, chartElData);
+
+			//add configured data to resulting chart
 			this.charts.push({
 				id,
 				dates,
-				additionalInfo,
+				additionalData,
 			});
 		}
 	}
 
-	addOptionsToData(){
-		for(let chartEl of this.charts){
+	createAdditionalData(
+		keys: string[],
+		chartElData: ChartData[]
+	): AdditionalData[] {
+		let additionalData: AdditionalData[] = [];
+
+		for (let key of keys) {
+			let arrWithValuesOfThisKey: number[] = [];
+
+			for (let el of chartElData) {
+				arrWithValuesOfThisKey.push(
+					el[key as keyof ChartData] as number
+				);
+			}
+
+			additionalData.push({
+				label: key,
+				data: arrWithValuesOfThisKey,
+				tension: 0.5,
+				fill: true,
+			});
+		}
+
+		return additionalData;
+	}
+
+	addOptionsToData(): void {
+		for (let chartEl of this.charts) {
 			this.chartsWithOptions.push({
 				id: chartEl.id,
 				lineChartOptions: {
@@ -150,9 +167,9 @@ export class ChartsComponent implements OnInit {
 				lineChartLegend: true,
 				lineChartData: {
 					labels: chartEl.dates,
-					datasets: chartEl.additionalInfo
-				}
-			})
+					datasets: chartEl.additionalData,
+				},
+			});
 		}
 	}
 }
