@@ -1,6 +1,6 @@
 <div class="charts">
 	<div *ngFor="let item of chartsWithOptions; let i = index">
-		<h1>id: {{ item.id }}</h1>
+		<h1 class="h1">id: {{ item.id }}</h1>
 		<div class="chart" #chart>
 			<button (click)="fullScreenHandler(i)">
 				<img src="assets/images/fullscreen.svg" alt="fullscreen" />
@@ -9,8 +9,8 @@
 				class="canvas"
 				data-full="false"
 				baseChart
-				width="600"
-				height="600"
+				width="800"
+				height="400"
 				[type]="'line'"
 				[legend]="item.lineChartLegend"
 				[options]="item.lineChartOptions"
@@ -18,5 +18,20 @@
 			>
 			</canvas>
 		</div>
+	</div>
+	<div class="sum">
+		<h1>СУММА</h1>
+		<canvas
+			class="canvas"
+			data-full="false"
+			baseChart
+			width="800"
+			height="400"
+			[type]="'line'"
+			[legend]="chartsWithSumOptions[0].lineChartLegend"
+			[options]="chartsWithSumOptions[0].lineChartOptions"
+			[data]="chartsWithSumOptions[0].lineChartData"
+		>
+		</canvas>
 	</div>
 </div>

@@ -5,11 +5,13 @@ import {
 	ElementRef,
 	QueryList,
 	ViewChildren,
+	HostListener,
+	ViewChild,
 } from '@angular/core';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
 
-interface ChartsWithOptions {
-	id: number;
+interface ChartWithOptions {
+	id?: number;
 	lineChartLegend: boolean;
 	lineChartOptions: ChartOptions<'line'>;
 	lineChartData: ChartConfiguration<'line'>['data'];
@@ -29,11 +31,11 @@ interface AdditionalData {
 	label: string;
 	data: number[];
 	tension: number;
-	fill: boolean;
+	fill?: boolean;
 }
 
 interface ChartEl {
-	id: number;
+	id?: number;
 	dates: string[];
 	additionalData: AdditionalData[];
 }
@@ -46,20 +48,29 @@ interface ChartEl {
 export class ChartsComponent implements OnInit {
 	charts: ChartEl[] = [];
 	data: ChartData[] = [];
-	chartsWithOptions: ChartsWithOptions[] = [];
+	chartsWithOptions: ChartWithOptions[] = [];
+	chartsWithSumOptions: ChartWithOptions[] = [];
 	uniqueIds = new Set<number>();
 	fullScreen = false;
+	idWhoIsFull = -1;
 
 	@ViewChildren('chart') chart!: QueryList<ElementRef>;
 
 	constructor(private http: HttpClient) {}
+
+	@HostListener('document:keydown', ['$event'])
+	closeOnEscHandler(event: KeyboardEvent) {
+		if (event.key === 'Escape' && this.idWhoIsFull !== -1) {
+			this.fullScreenHandler(this.idWhoIsFull);
+		}
+	}
 
 	ngOnInit(): void {
 		this.http.get('assets/01.json').subscribe((res) => {
 			this.data = res as ChartData[];
 			this.getUniqueId();
 			this.configureData();
-			this.addOptionsToData();
+			this.configureDataToSum();
 		});
 	}
 
@@ -69,18 +80,34 @@ export class ChartsComponent implements OnInit {
 		const chartCanvas = chart.children[1];
 
 		if (chartCanvas.dataset['full'] === 'false') {
-			chartCanvas.style.width = '50vw';
+			this.idWhoIsFull = id;
+			this.chart.toArray().forEach((el, i) => {
+				if (i !== id) {
+					el.nativeElement.style.display = 'none';
+				}
+			});
+
+			chartCanvas.style.width = '100vw';
 			chartCanvas.style.height = '100vh';
 			chartCanvas.className = 'canvas-fullScreen';
 			chartCanvas.dataset['full'] = 'true';
 
-			chart.closest('body').style.overflow = 'hidden';
 			chart.className = 'chart-fullScreen';
+			chart.closest('body').style.overflow = 'hidden';
+			window.scrollTo(0, 0);
 
 			chartButton.className = 'button-fullScreen';
+
+			const footer = document.querySelector('footer');
+			if (footer) footer.style.display = 'none';
 		} else {
-			chartCanvas.style.width = '600px';
-			chartCanvas.style.height = '600px';
+			this.idWhoIsFull = -1;
+			this.chart.toArray().forEach((el) => {
+				el.nativeElement.style.display = 'flex';
+			});
+
+			chartCanvas.style.width = '800px';
+			chartCanvas.style.height = '400px';
 			chartCanvas.dataset['full'] = 'false';
 			chartCanvas.className = 'canvas';
 
@@ -88,6 +115,9 @@ export class ChartsComponent implements OnInit {
 			chart.className = 'chart';
 
 			chartButton.className = '';
+
+			const footer = document.querySelector('footer');
+			if (footer) footer.style.display = 'block';
 		}
 	}
 
@@ -98,6 +128,8 @@ export class ChartsComponent implements OnInit {
 	}
 
 	configureData(): void {
+		let charts: ChartEl[] = []
+
 		for (let id of this.uniqueIds) {
 			let chartElData: ChartData[] = [];
 			let dates = [];
@@ -123,14 +155,70 @@ export class ChartsComponent implements OnInit {
 			additionalData = this.createAdditionalData(keys, chartElData);
 
 			//add configured data to resulting chart
-			this.charts.push({
+			charts.push({
 				id,
 				dates,
 				additionalData,
 			});
 		}
+
+		this.addOptionsToData(charts, this.chartsWithOptions);
 	}
 
+	configureDataToSum() {
+		let allDates = new Set<string>();
+		let resultArr: ChartEl[] = []
+		let additionalData: AdditionalData[] = [];
+		const unnecessaryKeys = ['src_office_id', 'office_name', 'dt_date'];
+
+		//get unique date
+		for (let el of this.data) {
+			allDates.add(el.dt_date);
+		}
+
+		//keys that will be displayed on the chart
+		let keys = Object.keys(this.data[0]); //take the keys of any such element
+		for (let unnecessaryKey of unnecessaryKeys) {
+			keys = keys.filter((el) => !el.includes(unnecessaryKey));
+		}
+
+		additionalData = this.createAdditionalSumData(keys, allDates);
+
+		//add configured data to resulting chart
+		resultArr.push({
+			dates: Array.from(allDates),
+			additionalData,
+		});
+		
+		this.addOptionsToData(resultArr, this.chartsWithSumOptions)
+	}
+
+	createAdditionalSumData(keys: string[], allDates: Set<string>){
+		let additionalData: AdditionalData[] = [];
+
+		for (let key of keys) {
+			let arrWithValuesOfThisKey: number[] = [];
+
+			for (let date of allDates) {
+				//array with this date
+				let dateFilters = this.data.filter((el) => el.dt_date === date);
+
+				//sum of values with this date
+				let sumOfOrdersWithThisDate = dateFilters.reduce(
+					(a, b) => a + (b[key as keyof ChartData] as number),
+					0
+				);
+				arrWithValuesOfThisKey.push(sumOfOrdersWithThisDate);
+			}
+			additionalData.push({
+				label: key,
+				data: arrWithValuesOfThisKey,
+				tension: 0.5
+			});
+		}
+
+		return additionalData
+	}
 	createAdditionalData(
 		keys: string[],
 		chartElData: ChartData[]
@@ -150,16 +238,15 @@ export class ChartsComponent implements OnInit {
 				label: key,
 				data: arrWithValuesOfThisKey,
 				tension: 0.5,
-				fill: true,
 			});
 		}
 
 		return additionalData;
 	}
 
-	addOptionsToData(): void {
-		for (let chartEl of this.charts) {
-			this.chartsWithOptions.push({
+	addOptionsToData(charts: ChartEl[], chartsWithOptions: ChartWithOptions[]): void {
+		for (let chartEl of charts) {
+			chartsWithOptions.push({
 				id: chartEl.id,
 				lineChartOptions: {
 					responsive: false,
