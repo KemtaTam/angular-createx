@@ -204,11 +204,11 @@ export class ChartsComponent implements OnInit {
 				let dateFilters = this.data.filter((el) => el.dt_date === date);
 
 				//sum of values with this date
-				let sumOfOrdersWithThisDate = dateFilters.reduce(
-					(a, b) => a + (b[key as keyof ChartData] as number),
+				let sumOfValuesWithThisDate = dateFilters.reduce(
+					(a, chartDataEl) => a + (chartDataEl[key as keyof ChartData] as number),
 					0
 				);
-				arrWithValuesOfThisKey.push(sumOfOrdersWithThisDate);
+				arrWithValuesOfThisKey.push(sumOfValuesWithThisDate);
 			}
 			additionalData.push({
 				label: key,
