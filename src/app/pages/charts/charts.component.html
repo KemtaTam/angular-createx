@@ -1,37 +1,11 @@
 <div class="charts">
-	<div *ngFor="let item of chartsWithOptions; let i = index">
-		<h1 class="h1">id: {{ item.id }}</h1>
-		<div class="chart" #chart>
-			<button (click)="fullScreenHandler(i)">
-				<img src="assets/images/fullscreen.svg" alt="fullscreen" />
-			</button>
-			<canvas
-				class="canvas"
-				data-full="false"
-				baseChart
-				width="800"
-				height="400"
-				[type]="'line'"
-				[legend]="item.lineChartLegend"
-				[options]="item.lineChartOptions"
-				[data]="item.lineChartData"
-			>
-			</canvas>
-		</div>
+	<img *ngIf="chartsService.isLoading" src="https://pear-advert.ru/images/uploads/blog/273/30.gif" alt="preloader">
+
+	<div *ngFor="let item of configuredData.data">
+		<app-chart-item [chartItem]='item'></app-chart-item>
 	</div>
+
 	<div class="sum">
-		<h1>СУММА</h1>
-		<canvas
-			class="canvas"
-			data-full="false"
-			baseChart
-			width="800"
-			height="400"
-			[type]="'line'"
-			[legend]="chartsWithSumOptions[0].lineChartLegend"
-			[options]="chartsWithSumOptions[0].lineChartOptions"
-			[data]="chartsWithSumOptions[0].lineChartData"
-		>
-		</canvas>
+		<app-chart-item [chartItem]='configuredData.dataToSum[0]'></app-chart-item>
 	</div>
 </div>

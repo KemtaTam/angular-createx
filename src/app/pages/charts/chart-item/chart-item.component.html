@@ -1,0 +1,19 @@
+<div class="chart" [ngClass]="{fullScreen: isFull}" #chart>
+	<div class="wrap">
+		<span></span>
+		<h2 class="h2">{{ chartItem.title || "" }}</h2>
+		<button [ngClass]="{button: !isFull, buttonFullScreen: isFull}" (click)="fullScreenHandler()">
+			<img src="assets/images/fullscreen.svg" alt="fullscreen" />
+		</button>
+	</div>
+	<canvas
+		class="canvas"
+		data-full="false"
+		baseChart
+		[type]="'line'"
+		[legend]="chartItem.lineChartLegend"
+		[options]="chartItem.lineChartOptions"
+		[data]="chartItem.lineChartData"
+	>
+	</canvas>
+</div>

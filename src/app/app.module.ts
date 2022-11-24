@@ -33,6 +33,7 @@ import { ContactQuestionsComponent } from './pages/contacts/contact-questions/co
 import { ContactInfoComponent } from './pages/contacts/contact-info/contact-info.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { ChartsComponent } from './pages/charts/charts.component';
+import { ChartItemComponent } from './pages/charts/chart-item/chart-item.component';
 
 @NgModule({
 	declarations: [
@@ -59,6 +60,7 @@ import { ChartsComponent } from './pages/charts/charts.component';
 		SinglePostSidebarComponent,
 		SinglePostAlsoLikeComponent,
 		SinglePostSubscribeComponent,
+  ChartItemComponent,
 	],
 	imports: [
 		BrowserModule,
