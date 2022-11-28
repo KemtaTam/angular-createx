@@ -1,17 +1,36 @@
-import { ChartWithOptions } from './../../../services/charts.service';
+import {
+	AfterViewInit,
+	Component,
+	ElementRef,
+	HostListener,
+	Input,
+	ViewChild,
+} from '@angular/core';
+import { Chart, ChartTypeRegistry, ScatterDataPoint } from 'chart.js';
 
-import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
+import { ChartWithOptions } from './../../../services/charts.service';
 
 @Component({
 	selector: 'app-chart-item',
 	templateUrl: './chart-item.component.html',
 	styleUrls: ['./chart-item.component.scss'],
 })
-export class ChartItemComponent {
-	isFull = false
+export class ChartItemComponent implements AfterViewInit {
+	isFull = false;
+	chart!: Chart<
+		keyof ChartTypeRegistry,
+		(number | ScatterDataPoint | null)[],
+		unknown
+	>;
 
-	@ViewChild('chart') chart!: ElementRef;
+	@ViewChild('chartWrapper') chartWrapper!: ElementRef;
+	@ViewChild('canvas') canvas!: ElementRef;
+
 	@Input() chartItem!: ChartWithOptions;
+
+	ngAfterViewInit(): void {
+		this.createChart();
+	}
 
 	@HostListener('document:keydown', ['$event'])
 	closeOnEscHandler(event: KeyboardEvent) {
@@ -19,25 +38,26 @@ export class ChartItemComponent {
 			this.fullScreenHandler();
 		}
 	}
-	
+
+	createChart() {
+		this.chart = new Chart(this.canvas.nativeElement, {
+			type: 'line',
+			data: {
+				labels: this.chartItem.lineChartData.labels,
+				datasets: this.chartItem.lineChartData.datasets,
+			},
+		});
+	}
+
 	fullScreenHandler(): void {
-		const chart = this.chart.nativeElement;
+		const chart = this.chartWrapper.nativeElement;
 
 		if (!this.isFull) {
-			this.isFull = true
-
+			this.isFull = true;
 			chart.closest('body').style.overflow = 'hidden';
-			window.scrollTo(0, 0);
-
-			const footer = document.querySelector('footer');
-			if (footer) footer.style.display = 'none';
 		} else {
-			this.isFull = false
-
+			this.isFull = false;
 			chart.closest('body').style.overflow = 'auto';
-
-			const footer = document.querySelector('footer');
-			if (footer) footer.style.display = 'block';
 		}
 	}
 }

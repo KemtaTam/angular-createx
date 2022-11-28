@@ -1,11 +1,8 @@
 <div class="charts">
-	<img *ngIf="chartsService.isLoading" src="https://pear-advert.ru/images/uploads/blog/273/30.gif" alt="preloader">
-
-	<div *ngFor="let item of configuredData.data">
-		<app-chart-item [chartItem]='item'></app-chart-item>
-	</div>
-
-	<div class="sum">
-		<app-chart-item [chartItem]='configuredData.dataToSum[0]'></app-chart-item>
-	</div>
+	<app-preloader *ngIf="isLoading; else content"></app-preloader>
+	<ng-template #content>
+		<div *ngFor="let item of configuredData.data">
+			<app-chart-item [chartItem]="item"></app-chart-item>
+		</div>
+	</ng-template>
 </div>

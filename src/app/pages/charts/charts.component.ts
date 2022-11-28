@@ -1,7 +1,4 @@
-import {
-	Component,
-	OnInit
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import {
 	ChartsService,
@@ -18,12 +15,25 @@ export interface ConfiguredData {
 	templateUrl: './charts.component.html',
 	styleUrls: ['./charts.component.scss'],
 })
-export class ChartsComponent implements OnInit{
-	configuredData!: ConfiguredData
+export class ChartsComponent implements OnInit {
+	configuredData!: ConfiguredData;
+	error = '';
+	isLoading = true;
 
 	constructor(public chartsService: ChartsService) {}
 
 	ngOnInit(): void {
-		this.configuredData = this.chartsService.getConfiguredData();
+		this.chartsService.load().subscribe({
+			next: (res) => {
+				this.configuredData = res;
+				this.configuredData.data.push(this.configuredData.dataToSum[0]);
+			},
+			error: (error) => {
+				this.error = error.message;
+			},
+			complete: () => {
+				this.isLoading = false;
+			},
+		});
 	}
 }

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-import { SignUpComponent } from './../../components/sign-up/sign-up.component';
-import { SignInComponent } from './../../components/sign-in/sign-in.component';
+import { SignUpComponent } from '../auth/sign-up/sign-up.component';
+import { SignInComponent } from '../auth/sign-in/sign-in.component';
 
 @Component({
 	selector: 'app-header',
@@ -18,6 +18,4 @@ export class HeaderComponent {
 	openDialogRegister(): void {
 		this.dialogTrigger.open(SignUpComponent);
 	}
-
-	
 }

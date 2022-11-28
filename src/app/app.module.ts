@@ -20,8 +20,8 @@ import { MetaDataComponent } from './components/common/meta-data/meta-data.compo
 import { ArticleComponent } from './components/article/article.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { SignInComponent } from './components/auth/sign-in/sign-in.component';
+import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 import { FormComponent } from './components/form/form.component';
 
 import { PostElComponent } from './pages/single-post/post-el/post-el.component';
@@ -36,6 +36,7 @@ import { ContactInfoComponent } from './pages/contacts/contact-info/contact-info
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { ChartsComponent } from './pages/charts/charts.component';
 import { ChartItemComponent } from './pages/charts/chart-item/chart-item.component';
+import { PreloaderComponent } from './components/common/preloader/preloader.component';
 
 @NgModule({
 	declarations: [
@@ -63,6 +64,7 @@ import { ChartItemComponent } from './pages/charts/chart-item/chart-item.compone
 		FooterComponent,
 		PostElComponent,
 		MetaDataComponent,
+		PreloaderComponent,
 	],
 	imports: [
 		BrowserModule,
