@@ -7,9 +7,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
+import { WINDOW_PROVIDERS } from './providers/window.provider';
 import { AppRoutingModule } from './app-routing.module';
 import { ColorfulDirective } from './directives/colorful.directive';
 import { AltPipe } from './pipes/alt.pipe';
+import { HostService } from './services/host.service';
 
 import { AppComponent } from './app.component';
 import { MyCheckboxComponent } from './components/UI/my-checkbox/my-checkbox.component';
@@ -41,26 +43,26 @@ import { ChartItemComponent } from './pages/charts/chart-item/chart-item.compone
 		AppComponent,
 		FormComponent,
 		IconsComponent,
-		ChartsComponent,
-		SignUpComponent,
 		SignInComponent,
-		HeaderComponent,
-		FooterComponent,
-		PostElComponent,
 		ArticleComponent,
-		MetaDataComponent,
+		TrendingArticleComponent,
+		SinglePostSidebarComponent,
+		SinglePostSubscribeComponent,
+		SinglePostAlsoLikeComponent,
+		SignUpComponent,
+		ChartsComponent,
 		ColorfulDirective,
 		ContactsComponent,
+		ChartItemComponent,
 		MyCheckboxComponent,
 		SinglePostComponent,
 		ContactInfoComponent,
-		SinglePostTagsComponent,
-		TrendingArticleComponent,
 		ContactQuestionsComponent,
-		SinglePostSidebarComponent,
-		SinglePostAlsoLikeComponent,
-		SinglePostSubscribeComponent,
-  ChartItemComponent,
+		SinglePostTagsComponent,
+		HeaderComponent,
+		FooterComponent,
+		PostElComponent,
+		MetaDataComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -70,9 +72,9 @@ import { ChartItemComponent } from './pages/charts/chart-item/chart-item.compone
 		MatDialogModule,
 		ReactiveFormsModule,
 		NgChartsModule,
-		HttpClientModule
+		HttpClientModule,
 	],
-	providers: [],
+	providers: [WINDOW_PROVIDERS, HostService],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

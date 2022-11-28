@@ -18,7 +18,7 @@ export interface ConfiguredData {
 	templateUrl: './charts.component.html',
 	styleUrls: ['./charts.component.scss'],
 })
-export class ChartsComponent implements OnInit {
+export class ChartsComponent implements OnInit{
 	configuredData!: ConfiguredData
 
 	constructor(public chartsService: ChartsService) {}

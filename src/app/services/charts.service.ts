@@ -94,8 +94,8 @@ export class ChartsService {
 
 		for (let id of this.uniqueIds) {
 			let chartElData: ChartData[] = [];
-			let dates = [];
 			let additionalData: AdditionalData[] = [];
+			const dates = [];
 			const unnecessaryKeys = ['src_office_id', 'office_name', 'dt_date'];
 
 			//only this id
@@ -104,7 +104,7 @@ export class ChartsService {
 			);
 
 			//all dates with this id
-			for (let el of chartElData) {
+			for (const el of chartElData) {
 				dates.push(el.dt_date);
 			}
 
@@ -218,7 +218,6 @@ export class ChartsService {
 				title: chartEl.title,
 				lineChartOptions: {
 					responsive: true,
-					/* maintainAspectRatio: false */
 					
 				},
 				lineChartLegend: true,
