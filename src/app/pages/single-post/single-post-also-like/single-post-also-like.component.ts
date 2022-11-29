@@ -1,14 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-interface Article {
-	articleType: 'Podcast' | 'Article';
-	backImg: string;
-	category: string;
-	date: string;
-	title: string;
-	text: string;
-	duration?: string;
-}
+import { Article } from './../../../components/article/article.component';
 
 @Component({
 	selector: 'app-single-post-also-like',
@@ -19,7 +11,7 @@ export class SinglePostAlsoLikeComponent implements OnInit {
 	alsoLikeArticles: Article[] = [
 		{
 			articleType: 'Podcast',
-			backImg: 'assets/images/single-post/also-like/roadtothedream.png',
+			backImg: 'assets/images/articles/roadtothedream.png',
 			category: 'Design',
 			date: 'July 28, 2020',
 			duration: '36 min',
@@ -28,7 +20,7 @@ export class SinglePostAlsoLikeComponent implements OnInit {
 		},
 		{
 			articleType: 'Article',
-			backImg: 'assets/images/single-post/also-like/notebook.png',
+			backImg: 'assets/images/articles/notebook.png',
 			category: 'Development',
 			date: 'September 1, 2020',
 			title: 'How to choose the first programming language for a beginner',
@@ -36,7 +28,7 @@ export class SinglePostAlsoLikeComponent implements OnInit {
 		},
 		{
 			articleType: 'Article', 
-			backImg: 'assets/images/single-post/also-like/chel.png',
+			backImg: 'assets/images/articles/chel.png',
 			category: 'Design',
 			date: 'August 8, 2020',
 			title: 'Should you choose a creative profession if you are attracted to creativity?',

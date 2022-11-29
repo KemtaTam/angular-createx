@@ -5,8 +5,9 @@ import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { TokenInterceptor } from './classes/token.interceptor';
 import { WINDOW_PROVIDERS } from './providers/window.provider';
 import { AppRoutingModule } from './app-routing.module';
 import { ColorfulDirective } from './directives/colorful.directive';
@@ -22,13 +23,16 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
-import { FormComponent } from './components/form/form.component';
+import { PreloaderComponent } from './components/common/preloader/preloader.component';
+import { TitleComponent } from './components/common/title/title.component';
+import { SubscribeComponent } from './components/common/subscribe/subscribe.component';
+import { ContainerComponent } from './components/common/container/container.component';
+import { PaginationComponent } from './components/common/pagination/pagination.component';
 
 import { PostElComponent } from './pages/single-post/post-el/post-el.component';
 import { SinglePostAlsoLikeComponent } from './pages/single-post/single-post-also-like/single-post-also-like.component';
 import { TrendingArticleComponent } from './pages/single-post/single-post-sidebar/trending-article/trending-article.component';
 import { SinglePostSidebarComponent } from './pages/single-post/single-post-sidebar/single-post-sidebar.component';
-import { SinglePostSubscribeComponent } from './pages/single-post/single-post-subscribe/single-post-subscribe.component';
 import { SinglePostTagsComponent } from './pages/single-post/single-post-tags/single-post-tags.component';
 import { SinglePostComponent } from './pages/single-post/single-post.component';
 import { ContactQuestionsComponent } from './pages/contacts/contact-questions/contact-questions.component';
@@ -36,19 +40,18 @@ import { ContactInfoComponent } from './pages/contacts/contact-info/contact-info
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { ChartsComponent } from './pages/charts/charts.component';
 import { ChartItemComponent } from './pages/charts/chart-item/chart-item.component';
-import { PreloaderComponent } from './components/common/preloader/preloader.component';
+import { BlogComponent } from './pages/blog/blog.component';
+import { BlogToolbarComponent } from './pages/blog/blog-toolbar/blog-toolbar.component';
 
 @NgModule({
 	declarations: [
 		AltPipe,
 		AppComponent,
-		FormComponent,
 		IconsComponent,
 		SignInComponent,
 		ArticleComponent,
 		TrendingArticleComponent,
 		SinglePostSidebarComponent,
-		SinglePostSubscribeComponent,
 		SinglePostAlsoLikeComponent,
 		SignUpComponent,
 		ChartsComponent,
@@ -65,6 +68,12 @@ import { PreloaderComponent } from './components/common/preloader/preloader.comp
 		PostElComponent,
 		MetaDataComponent,
 		PreloaderComponent,
+		BlogComponent,
+		TitleComponent,
+		SubscribeComponent,
+		ContainerComponent,
+		BlogToolbarComponent,
+		PaginationComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -76,7 +85,12 @@ import { PreloaderComponent } from './components/common/preloader/preloader.comp
 		NgChartsModule,
 		HttpClientModule,
 	],
-	providers: [WINDOW_PROVIDERS, HostService],
+	providers: [WINDOW_PROVIDERS, HostService,
+	{
+		provide: HTTP_INTERCEPTORS,
+		multi: true,
+		useClass: TokenInterceptor
+	}],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

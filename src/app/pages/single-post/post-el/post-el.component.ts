@@ -20,7 +20,7 @@ export class PostElComponent implements OnInit {
 		title: 'HR statistics: job search, interviews, hiring and recruiting',
 		date: 'August 3, 2020',
 		duration: '4 min read',
-		backImg: 'assets/images/single-post/post-el/back-image.jpg',
+		backImg: 'assets/images/articles/keyboard.png',
 		tags: ['learning', 'HR', 'self-development'],
 	};
 

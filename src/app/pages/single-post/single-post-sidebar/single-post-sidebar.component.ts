@@ -30,19 +30,19 @@ export class SinglePostSidebarComponent implements OnInit {
 		{
 			id: 1,
 			date: 'September 4, 2020',
-			img: 'assets/images/single-post/single-post-sidebar/face.png',
+			img: 'assets/images/articles/face.png',
 			text: 'What is traffic arbitrage and does it really make money?',
 		},
 		{
 			id: 2,
 			date: 'July 15, 2020',
-			img: 'assets/images/single-post/single-post-sidebar/pot.png',
+			img: 'assets/images/articles/pot.png',
 			text: 'Startup: how to build a team that will live longer than a year',
 		},
 		{
 			id: 3,
 			date: 'August 2, 2020',
-			img: 'assets/images/single-post/single-post-sidebar/flos.png',
+			img: 'assets/images/articles/flos.png',
 			text: 'What to do if you want to get feedback on the product',
 		},
 	];

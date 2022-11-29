@@ -1,0 +1,29 @@
+<app-container>
+	<div class="title-wrap">
+		<app-title
+			subtitle="Our blog"
+			title="Createx School Journal"
+		></app-title>
+	</div>
+
+	<app-blog-toolbar></app-blog-toolbar>
+
+	<div class="article-wrapper">
+		<app-article
+			*ngFor="let article of blogArticles"
+			[articleType]="article.articleType"
+			[backImg]="article.backImg"
+			[category]="article.category"
+			[date]="article.date"
+			[duration]="article.duration"
+			[title]="article.title"
+			[text]="article.text"
+		></app-article>
+	</div>
+
+	<div class="pagination-wrap">
+		<app-pagination></app-pagination>
+	</div>
+</app-container>
+
+<app-subscribe></app-subscribe>

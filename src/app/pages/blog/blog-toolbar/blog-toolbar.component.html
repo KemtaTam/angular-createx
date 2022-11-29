@@ -1,0 +1,58 @@
+<div class="toolbar">
+	<div class="sort-by-type">
+		<div class="sort-by-type_el active">
+			<h3>All</h3>
+		</div>
+		<div class="sort-by-type_el">
+			<div
+				[ngStyle]="{
+					webkitMask:
+						'url(assets/images/articles/Files.svg) no-repeat center'
+				}"
+			></div>
+			<h3>Articles</h3>
+		</div>
+		<div class="sort-by-type_el">
+			<div
+				[ngStyle]="{
+					webkitMask:
+						'url(assets/images/articles/Play.svg) no-repeat center'
+				}"
+			></div>
+			<h3>Videos</h3>
+		</div>
+		<div class="sort-by-type_el">
+			<div
+				[ngStyle]="{
+					webkitMask:
+						'url(assets/images/articles/mic.svg) no-repeat center'
+				}"
+			></div>
+			<h3>Podcasts</h3>
+		</div>
+	</div>
+	<div class="sort-search-wrap">
+		<div class="sort-by-category">
+			<label for="blog-category-select"><h3>Blog category</h3></label>
+			<div class="select">
+				<select id="blog-category-select">
+					<option value="all themes">all themes</option>
+					<option value="Design">Design</option>
+					<option value="Development">Development</option>
+					<option value="Marketing">Marketing</option>
+					<option value="Management">Management</option>
+					<option value="HR & Recruting">HR & Recruting</option>
+				</select>
+			</div>
+		</div>
+		<div class="search">
+			<input class="input" placeholder="Search blog..." />
+			<button class="b-search" type="button">
+				<img
+					src="assets/images/single-post/single-post-sidebar/search.svg"
+					alt="search"
+				/>
+			</button>
+		</div>
+	</div>
+</div>

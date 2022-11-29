@@ -1,8 +1,12 @@
 .article {
-	max-width: 390px;
+	margin-top: 60px;
 
-	.back-img {
+	.back-img-wrap {
 		position: relative;
+
+		.back-img{
+			height: 300px;
+		}
 
 		.type {
 			position: absolute;

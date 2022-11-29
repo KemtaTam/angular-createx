@@ -1,11 +1,16 @@
 <mat-card>
-	<article class="article">
-		<div class="back-img">
-			<img appColorful [src]="backImg" [alt]="backImg | getAltFromSrc" />
+	<article class="article" [ngStyle]="{maxWidth: articleWidth}">
+		<div class="back-img-wrap">
+			<img
+				class="back-img"
+				appColorful
+				[src]="backImg"
+				[alt]="backImg | getAltFromSrc"
+			/>
 			<div class="type">
 				<img
-					[src]="articleType === 'Podcast' ? podcastSrc : articleSrc"
-					[alt]="articleType === 'Podcast' ? (podcastSrc | getAltFromSrc) : (articleSrc | getAltFromSrc)"
+					[src]="articleTypeSrc[articleType]"
+					[alt]="articleTypeSrc[articleType] | getAltFromSrc"
 				/>
 				<div class="type-text">{{ articleType }}</div>
 			</div>
@@ -28,12 +33,9 @@
 			{{ text }}
 		</p>
 		<div class="action">
-			<a href="">
-				<h3>{{ articleType === "Podcast" ? "Listen" : "Read" }}</h3>
-				<img
-					src="assets/images/single-post/also-like/Line-right-red.svg"
-					alt="Line-right"
-				/>
+			<a routerLink="/single-post">
+				<h3>{{ articleTypeAction[articleType] }}</h3>
+				<img src="assets/images/Line-right-red.svg" alt="Line-right" />
 			</a>
 		</div>
 	</article>
