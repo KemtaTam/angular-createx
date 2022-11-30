@@ -1,48 +1,50 @@
-<header>
-	<div class="wrap">
-		<nav>
-			<img src="assets/images/logo.svg" alt="logo" />
-			<ul class="ul">
-				<li routerLinkActive="active">
-					<a routerLink="/about"><h3>About Us</h3></a>
-				</li>
-				<li routerLinkActive="active">
-					<a routerLink="/courses"><h3>Courses</h3></a>
-				</li>
-				<li routerLinkActive="active">
-					<a routerLink="/events"><h3>Events</h3></a>
-				</li>
-				<li routerLinkActive="active">
-					<a routerLink="/blog"><h3>Blog</h3></a>
-				</li>
-				<li routerLinkActive="active">
-					<a routerLink="/contacts"><h3>Contacts</h3></a>
-				</li>
-				<li routerLinkActive="active">
-					<a routerLink="/charts"><h3>Charts</h3></a>
-				</li>
-			</ul>
-		</nav>
-		<div class="right-part">
-			<button>Get consultation</button>
-			<div class="autorization">
-				<img src="assets/images/Profile.svg" alt="profile" />
-				<button
-					class="auth-button"
-					type="button"
-					(click)="openDialogLogin()"
-				>
-					<h3>Log in</h3>
-				</button>
-				<span>/</span>
-				<button
-					class="auth-button"
-					type="button"
-					(click)="openDialogRegister()"
-				>
-					<h3>Register</h3>
-				</button>
+<app-container>
+	<header>
+		<div class="wrap">
+			<nav>
+				<img src="assets/images/logo.svg" alt="logo" />
+				<ul class="ul">
+					<li routerLinkActive="active">
+						<a routerLink="/about"><h3>About Us</h3></a>
+					</li>
+					<li routerLinkActive="active">
+						<a routerLink="/courses"><h3>Courses</h3></a>
+					</li>
+					<li routerLinkActive="active">
+						<a routerLink="/events"><h3>Events</h3></a>
+					</li>
+					<li routerLinkActive="active">
+						<a routerLink="/blog"><h3>Blog</h3></a>
+					</li>
+					<li routerLinkActive="active">
+						<a routerLink="/contacts"><h3>Contacts</h3></a>
+					</li>
+					<li routerLinkActive="active">
+						<a routerLink="/charts"><h3>Charts</h3></a>
+					</li>
+				</ul>
+			</nav>
+			<div class="right-part">
+				<button>Get consultation</button>
+				<div class="autorization">
+					<img src="assets/images/Profile.svg" alt="profile" />
+					<button
+						class="auth-button"
+						type="button"
+						(click)="openDialogLogin()"
+					>
+						<h3>Log in</h3>
+					</button>
+					<span>/</span>
+					<button
+						class="auth-button"
+						type="button"
+						(click)="openDialogRegister()"
+					>
+						<h3>Register</h3>
+					</button>
+				</div>
 			</div>
 		</div>
-	</div>
-</header>
+	</header>
+</app-container>

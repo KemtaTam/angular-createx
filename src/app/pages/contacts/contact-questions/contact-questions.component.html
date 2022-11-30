@@ -2,8 +2,10 @@
 	<div class="container">
 		<img src="assets/images/illustration.svg" alt="illustration" />
 		<div class="wrap">
-			<h3>Any questions?</h3>
-			<h1>Drop us a line</h1>
+			<app-title
+				title="Drop us a line"
+				subtitle="Any questions?"
+			></app-title>
 
 			<form>
 				<div class="input-wrap">
@@ -28,12 +30,22 @@
 
 				<div class="input-wrap">
 					<label for="email" class="label">Email*</label>
-					<input type="email" id="email" class="input" placeholder="Your working email"/>
+					<input
+						type="email"
+						id="email"
+						class="input"
+						placeholder="Your working email"
+					/>
 				</div>
 
 				<div class="input-wrap">
 					<label for="phone" class="label">Phone</label>
-					<input type="phone" id="phone" class="input" placeholder="Your phone number"/>
+					<input
+						type="phone"
+						id="phone"
+						class="input"
+						placeholder="Your phone number"
+					/>
 				</div>
 
 				<div class="textarea-wrap">
@@ -46,7 +58,10 @@
 
 				<div class="agree-and-button">
 					<div class="agree">
-						<app-my-checkbox text="I agree to receive communications from Createx Online School" maxWidth="287px"></app-my-checkbox>
+						<app-my-checkbox
+							text="I agree to receive communications from Createx Online School"
+							maxWidth="287px"
+						></app-my-checkbox>
 					</div>
 					<button type="submit" class="b-submit">
 						<h3>Send message</h3>

@@ -42,6 +42,7 @@ import { ChartsComponent } from './pages/charts/charts.component';
 import { ChartItemComponent } from './pages/charts/chart-item/chart-item.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogToolbarComponent } from './pages/blog/blog-toolbar/blog-toolbar.component';
+import { SearchComponent } from './components/UI/search/search.component';
 
 @NgModule({
 	declarations: [
@@ -74,6 +75,7 @@ import { BlogToolbarComponent } from './pages/blog/blog-toolbar/blog-toolbar.com
 		ContainerComponent,
 		BlogToolbarComponent,
 		PaginationComponent,
+  SearchComponent,
 	],
 	imports: [
 		BrowserModule,
