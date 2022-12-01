@@ -11,30 +11,24 @@ const VALUE_ACCESSOR: Provider = {
 	selector: 'app-switch',
 	templateUrl: './switch.component.html',
 	styleUrls: ['./switch.component.scss'],
-	providers: [{
-		provide: NG_VALUE_ACCESSOR,
-		useExisting: forwardRef(() => SwitchComponent),
-		multi: true,
-	}],
+	providers: [VALUE_ACCESSOR],
 })
 export class SwitchComponent implements ControlValueAccessor {
 	state = 'off';
 
-	private onChange = (value: any) => {}
+	private onChange: (value: any) => void = (value: any) => {};
 
-	setState(state: string) {
+	setState(state: string): void {
 		this.state = state;
-		this.onChange(this.state)
+		this.onChange(this.state);
 	}
 
 	writeValue(state: string): void {
-		this.state = state
+		this.state = state;
 	}
 	registerOnChange(fn: any): void {
-		this.onChange = fn
+		this.onChange = fn;
 	}
-	registerOnTouched(fn: any): void {
-	}
-	setDisabledState?(isDisabled: boolean): void {
-	}
+	registerOnTouched(fn: any): void {}
+	setDisabledState?(isDisabled: boolean): void {}
 }

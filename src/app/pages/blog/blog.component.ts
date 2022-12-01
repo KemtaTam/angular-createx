@@ -1,7 +1,6 @@
 import { Article } from './../../components/article/article.component';
 import { Component } from '@angular/core';
 
-//todo: сделать поиск компонентой
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
