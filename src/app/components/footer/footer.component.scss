@@ -2,17 +2,10 @@ footer {
 	background: #1e212c;
 }
 
-.container {
-	width: 100%;
-	max-width: 1250px;
-	margin: 0 auto;
-	padding: 0 10px;
-}
-
 .wrap {
 	padding-top: 80px;
 	display: flex;
-	gap: 80px;
+	justify-content: space-between;
 
 	& > .footer-el {
 		min-width: 80px;
@@ -28,7 +21,7 @@ footer {
 			padding-bottom: 38px;
 		}
 
-		& > .icons-wrapper{
+		& > .icons-wrapper {
 			width: 244px;
 			height: 26px;
 		}
@@ -89,14 +82,14 @@ footer {
 		opacity: 0.6;
 	}
 
-	& > .footer-el > .ul-contacts{
+	& > .footer-el > .ul-contacts {
 		margin-top: 12px;
 
-		& > li{
+		& > li {
 			display: flex;
 			gap: 8px;
 
-			& > a{
+			& > a {
 				color: white;
 			}
 		}
@@ -107,23 +100,19 @@ footer {
 	width: 100%;
 	margin-top: 60px;
 	background-color: #292c37ff;
-	padding-bottom: 10px;
-	padding-top: 18px;
+	padding-bottom: 20px;
+	padding-top: 20px;
 
-	& > .container {
-		width: 100%;
-		max-width: 1250px;
-		margin: 0 auto;
-		padding: 0 10px;
+	.down-content-wrap {
 		display: flex;
 		justify-content: space-between;
 
-		& > p {
+		p {
 			color: #ffffff;
 			font-size: 12px;
 		}
 
-		& > a {
+		a {
 			font-weight: 700;
 			color: #ffffff;
 			opacity: 0.6;

@@ -1,5 +1,9 @@
 <app-header></app-header>
 
+<app-switch [(ngModel)]="appState" (ngModelChange)="handleChange()"></app-switch>
+<hr>
+appState: {{appState}}
+
 <router-outlet></router-outlet>
 
 <app-footer></app-footer>

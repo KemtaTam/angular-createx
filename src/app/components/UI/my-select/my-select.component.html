@@ -1,0 +1,12 @@
+<div class="select-wrap">
+	<label [for]="id">
+		<h3>{{ label }}</h3>
+	</label>
+	<div class="select">
+		<select [id]="id">
+			<option *ngFor="let value of options" [value]="value.toLowerCase()">
+				{{ value }}
+			</option>
+		</select>
+	</div>
+</div>

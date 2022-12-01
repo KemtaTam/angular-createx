@@ -2,15 +2,11 @@ section {
 	padding-top: 72px;
 }
 
-.container {
+.section-wrapper {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
 	max-height: 444px;
-	width: 100%;
-	max-width: 1250px;
-	margin: 0 auto;
-	padding: 0 10px;
 }
 
 .wrap h3 {

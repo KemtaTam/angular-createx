@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, delay, map, Observable, throwError } from 'rxjs';
-import { ChartConfiguration, ChartOptions } from 'chart.js';
+import { ChartConfiguration } from 'chart.js';
 
 import { ConfiguredData } from './../pages/charts/charts.component';
 
@@ -24,6 +24,8 @@ export interface AdditionalData {
 	label: string;
 	data: number[];
 	tension: number;
+	backgroundColor?: string;
+	borderColor?: string;
 }
 
 export interface ChartEl {
@@ -41,6 +43,7 @@ export class ChartsService {
 	private chartsWithOptions: ChartWithOptions[] = [];
 	private chartsWithSumOptions: ChartWithOptions[] = [];
 	private baseUrl = 'assets';
+	private colors: string[] = ['red', 'green', 'blue', 'black'];
 
 	constructor(private http: HttpClient) {}
 
@@ -144,6 +147,7 @@ export class ChartsService {
 		chartElData: ChartDataItem[]
 	): AdditionalData[] {
 		const additionalData: AdditionalData[] = [];
+		let indexOfColor = 0;
 
 		for (const key of keys) {
 			const arrWithValuesOfThisKey: number[] = [];
@@ -158,7 +162,10 @@ export class ChartsService {
 				label: key,
 				data: arrWithValuesOfThisKey,
 				tension: 0.5,
+				backgroundColor: this.colors[indexOfColor],
+				borderColor: this.colors[indexOfColor],
 			});
+			indexOfColor++;
 		}
 
 		return additionalData;
@@ -169,6 +176,7 @@ export class ChartsService {
 		allDates: Set<string>
 	): AdditionalData[] {
 		const additionalData: AdditionalData[] = [];
+		let indexOfColor = 0;
 
 		for (const key of keys) {
 			const arrWithValuesOfThisKey: number[] = [];
@@ -186,11 +194,15 @@ export class ChartsService {
 				);
 				arrWithValuesOfThisKey.push(sumOfValuesWithThisDate);
 			}
+			
 			additionalData.push({
 				label: key,
 				data: arrWithValuesOfThisKey,
 				tension: 0.5,
+				backgroundColor: this.colors[indexOfColor],
+				borderColor: this.colors[indexOfColor],
 			});
+			indexOfColor++;
 		}
 
 		return additionalData;

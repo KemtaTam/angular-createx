@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./blog-toolbar.component.scss']
 })
 export class BlogToolbarComponent {
-
+	options: string[] = [
+		'all themes',
+		'Design',
+		'Development',
+		'Marketing',
+		'Management',
+		'HR & Recruting'
+	]
 }

@@ -32,20 +32,12 @@
 		</div>
 	</div>
 	<div class="sort-search-wrap">
-		<div class="sort-by-category">
-			<label for="blog-category-select"><h3>Blog category</h3></label>
-			<div class="select">
-				<select id="blog-category-select">
-					<option value="all themes">all themes</option>
-					<option value="Design">Design</option>
-					<option value="Development">Development</option>
-					<option value="Marketing">Marketing</option>
-					<option value="Management">Management</option>
-					<option value="HR & Recruting">HR & Recruting</option>
-				</select>
-			</div>
-		</div>
-
+		<app-my-select
+			id="blog-category-select"
+			[options]="options"
+			label="Blog category"
+		></app-my-select>
+		
 		<div class="search-wrap">
 			<app-search></app-search>
 		</div>

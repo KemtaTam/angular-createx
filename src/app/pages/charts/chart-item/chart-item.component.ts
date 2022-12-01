@@ -6,7 +6,12 @@ import {
 	Input,
 	ViewChild,
 } from '@angular/core';
-import { Chart, ChartTypeRegistry, ScatterDataPoint } from 'chart.js';
+import {
+	Chart,
+	ChartTypeRegistry,
+	ScatterDataPoint,
+	registerables,
+} from 'chart.js';
 
 import { ChartWithOptions } from './../../../services/charts.service';
 
@@ -28,6 +33,10 @@ export class ChartItemComponent implements AfterViewInit {
 
 	@Input() chartItem!: ChartWithOptions;
 
+	constructor() {
+		Chart.register(...registerables);
+	}
+
 	ngAfterViewInit(): void {
 		this.createChart();
 	}
@@ -48,6 +57,7 @@ export class ChartItemComponent implements AfterViewInit {
 			},
 		});
 	}
+
 
 	fullScreenHandler(): void {
 		const chart = this.chartWrapper.nativeElement;

@@ -5,13 +5,9 @@ section {
 	padding-bottom: 180px;
 }
 
-.container {
+.section-wrapper {
 	display: flex;
 	justify-content: space-between;
-	width: 100%;
-	max-width: 1265px;
-	margin: 0 auto;
-	padding: 0 10px;
 }
 
 .wrap {
@@ -70,17 +66,8 @@ form {
 			align-items: flex-start;
 		}
 
-		& > button {
-			background: $b-color;
-			line-height: 100%;
-			line-height: 52px;
-			padding: 0 117px;
-			border: none;
-			border-radius: 4px;
-
-			& > h3 {
-				color: white;
-			}
+		.button-wrap{
+			width: 340px;
 		}
 	}
 }

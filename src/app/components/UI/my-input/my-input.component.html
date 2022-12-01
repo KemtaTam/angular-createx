@@ -1,0 +1,20 @@
+<input
+	[type]="type"
+	[id]="id"
+	[placeholder]="placeholder"
+/>
+
+<div class="password">
+	<input
+		[type]="isVisibleForPassword ? 'text' : 'password'"
+		id="password-signin"
+		class="input"
+	/>
+	<button
+		class="eye"
+		type="button"
+		(click)="isVisibleForPassword = !isVisibleForPassword"
+	>
+		<img src="assets/images/Eye.svg" alt="eye" />
+	</button>
+</div>

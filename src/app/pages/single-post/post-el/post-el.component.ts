@@ -28,3 +28,4 @@ export class PostElComponent implements OnInit {
 
 	ngOnInit(): void {}
 }
+

@@ -1,0 +1,15 @@
+@import "../../../app.component.scss";
+
+button {
+	display: inline-block;
+	background: $b-color;
+	border: none;
+	border-radius: 4px;
+	padding: 0 40px;
+	line-height: 52px;
+	width: 100%;
+
+	h3 {
+		color: white;
+	}
+}

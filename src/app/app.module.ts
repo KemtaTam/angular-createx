@@ -1,5 +1,4 @@
-import { NgChartsModule } from 'ng2-charts';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
@@ -43,6 +42,10 @@ import { ChartItemComponent } from './pages/charts/chart-item/chart-item.compone
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogToolbarComponent } from './pages/blog/blog-toolbar/blog-toolbar.component';
 import { SearchComponent } from './components/UI/search/search.component';
+import { MyButtonComponent } from './components/UI/my-button/my-button.component';
+import { MySelectComponent } from './components/UI/my-select/my-select.component';
+import { MyInputComponent } from './components/UI/my-input/my-input.component';
+import { SwitchComponent } from './components/switch/switch.component';
 
 @NgModule({
 	declarations: [
@@ -76,6 +79,10 @@ import { SearchComponent } from './components/UI/search/search.component';
 		BlogToolbarComponent,
 		PaginationComponent,
   SearchComponent,
+  MyButtonComponent,
+  MySelectComponent,
+  MyInputComponent,
+  SwitchComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -84,8 +91,8 @@ import { SearchComponent } from './components/UI/search/search.component';
 		MatCardModule,
 		MatDialogModule,
 		ReactiveFormsModule,
-		NgChartsModule,
 		HttpClientModule,
+		FormsModule
 	],
 	providers: [WINDOW_PROVIDERS, HostService,
 	{

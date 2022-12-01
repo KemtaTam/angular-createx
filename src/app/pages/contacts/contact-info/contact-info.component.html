@@ -1,50 +1,63 @@
-<section>
-	<div class="container">
-		<div class="wrap">
-			<app-title title="Get in touch" subtitle="Contact info"></app-title>
+<app-container>
+	<section>
+		<div class="section-wrapper">
+			<div class="wrap">
+				<app-title
+					title="Get in touch"
+					subtitle="Contact info"
+				></app-title>
 
-			<div class="contact-info">
-				<div class="contact-el">
-					<img src="assets/images/contacts/Chat.svg" alt="Chat" />
-					<div class="text">
-						<p class="key">Talk to us:</p>
-						<a
-							[href]="'mailto:' + contactsDataService.emailToTalk"
-							class="value"
-							>{{ contactsDataService.emailToTalk }}</a
-						>
+				<div class="contact-info">
+					<div class="contact-el">
+						<img src="assets/images/contacts/Chat.svg" alt="Chat" />
+						<div class="text">
+							<p class="key">Talk to us:</p>
+							<a
+								[href]="
+									'mailto:' + contactsDataService.emailToTalk
+								"
+								class="value"
+								>{{ contactsDataService.emailToTalk }}</a
+							>
+						</div>
+					</div>
+					<div class="contact-el">
+						<img
+							src="assets/images/contacts/iPhone.svg"
+							alt="iPhone"
+						/>
+						<div class="text">
+							<p class="key">Call us:</p>
+							<a
+								[href]="'tel:+7' + contactsDataService.phone"
+								class="value"
+								>{{ contactsDataService.getMaskNumber() }}</a
+							>
+						</div>
+					</div>
+					<div class="contact-el">
+						<img
+							src="assets/images/contacts/Vector.svg"
+							alt="Vector"
+						/>
+						<div class="text">
+							<p class="key">Address:</p>
+							<p class="value">
+								{{ contactsDataService.address }}
+							</p>
+						</div>
 					</div>
 				</div>
-				<div class="contact-el">
-					<img src="assets/images/contacts/iPhone.svg" alt="iPhone" />
-					<div class="text">
-						<p class="key">Call us:</p>
-						<a
-							[href]="'tel:+7' + contactsDataService.phone"
-							class="value"
-							>{{ contactsDataService.getMaskNumber() }}</a
-						>
-					</div>
-				</div>
-				<div class="contact-el">
-					<img src="assets/images/contacts/Vector.svg" alt="Vector" />
-					<div class="text">
-						<p class="key">Address:</p>
-						<p class="value">
-							{{ contactsDataService.address }}
-						</p>
+
+				<div class="follow-links">
+					<h3>Follow us:</h3>
+					<div class="icons-wrapper">
+						<app-icons [socials]="socials"></app-icons>
 					</div>
 				</div>
 			</div>
 
-			<div class="follow-links">
-				<h3>Follow us:</h3>
-				<div class="icons-wrapper">
-					<app-icons [socials]="socials"></app-icons>
-				</div>
-			</div>
+			<div class="map" id="map"></div>
 		</div>
-
-		<div class="map" id="map"></div>
-	</div>
-</section>
+	</section>
+</app-container>
