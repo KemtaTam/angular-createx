@@ -27,6 +27,10 @@ import { TitleComponent } from './components/common/title/title.component';
 import { SubscribeComponent } from './components/common/subscribe/subscribe.component';
 import { ContainerComponent } from './components/common/container/container.component';
 import { PaginationComponent } from './components/common/pagination/pagination.component';
+import { SearchComponent } from './components/UI/search/search.component';
+import { MyButtonComponent } from './components/UI/my-button/my-button.component';
+import { MySelectComponent } from './components/UI/my-select/my-select.component';
+import { MyInputComponent } from './components/UI/my-input/my-input.component';
 
 import { PostElComponent } from './pages/single-post/post-el/post-el.component';
 import { SinglePostAlsoLikeComponent } from './pages/single-post/single-post-also-like/single-post-also-like.component';
@@ -41,11 +45,7 @@ import { ChartsComponent } from './pages/charts/charts.component';
 import { ChartItemComponent } from './pages/charts/chart-item/chart-item.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogToolbarComponent } from './pages/blog/blog-toolbar/blog-toolbar.component';
-import { SearchComponent } from './components/UI/search/search.component';
-import { MyButtonComponent } from './components/UI/my-button/my-button.component';
-import { MySelectComponent } from './components/UI/my-select/my-select.component';
-import { MyInputComponent } from './components/UI/my-input/my-input.component';
-import { SwitchComponent } from './components/switch/switch.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
 	declarations: [
@@ -78,11 +78,11 @@ import { SwitchComponent } from './components/switch/switch.component';
 		ContainerComponent,
 		BlogToolbarComponent,
 		PaginationComponent,
-  SearchComponent,
-  MyButtonComponent,
-  MySelectComponent,
-  MyInputComponent,
-  SwitchComponent,
+		SearchComponent,
+		MyButtonComponent,
+		MySelectComponent,
+		MyInputComponent,
+		NotFoundComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -92,14 +92,17 @@ import { SwitchComponent } from './components/switch/switch.component';
 		MatDialogModule,
 		ReactiveFormsModule,
 		HttpClientModule,
-		FormsModule
+		FormsModule,
 	],
-	providers: [WINDOW_PROVIDERS, HostService,
-	{
-		provide: HTTP_INTERCEPTORS,
-		multi: true,
-		useClass: TokenInterceptor
-	}],
+	providers: [
+		WINDOW_PROVIDERS,
+		HostService,
+		{
+			provide: HTTP_INTERCEPTORS,
+			multi: true,
+			useClass: TokenInterceptor,
+		},
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}
