@@ -1,20 +1,32 @@
-<input
-	[type]="type"
-	[id]="id"
-	[placeholder]="placeholder"
-/>
-
-<div class="password">
+<label *ngIf="type !== 'password'; else password">
+	{{ label }}
 	<input
-		[type]="isVisibleForPassword ? 'text' : 'password'"
-		id="password-signin"
 		class="input"
+		[name]="name"
+		[type]="type"
+		[placeholder]="placeholder"
+		[ngStyle]="{height, marginTop: label ? '8px' : '0'}"
+
 	/>
-	<button
-		class="eye"
-		type="button"
-		(click)="isVisibleForPassword = !isVisibleForPassword"
-	>
-		<img src="assets/images/Eye.svg" alt="eye" />
-	</button>
-</div>
+</label>
+
+<ng-template #password>
+	<label>
+		{{ label }}
+		<div class="password" [ngStyle]="{height, marginTop: label ? '8px' : '0'}">
+			<input
+				[type]="isVisibleForPassword ? 'text' : 'password'"
+				[name]="name"
+				[placeholder]="placeholder"
+			/>
+
+			<button
+				class="eye"
+				type="button"
+				(click)="isVisibleForPassword = !isVisibleForPassword"
+			>
+				<img src="assets/images/Eye.svg" alt="eye" />
+			</button>
+		</div>
+	</label>
+</ng-template>

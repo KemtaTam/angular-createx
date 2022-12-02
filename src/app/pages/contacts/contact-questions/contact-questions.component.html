@@ -10,51 +10,52 @@
 
 				<form>
 					<div class="input-wrap">
-						<label for="firstname" class="label">First Name*</label>
-						<input
+						<app-my-input
 							type="text"
-							id="firstname"
 							placeholder="Your first name"
-							class="input"
-						/>
+							name="firstname"
+							label="First Name*"
+							[ngStyle]="{ fontSize: '16px' }"
+						></app-my-input>
 					</div>
 
 					<div class="input-wrap">
-						<label for="lastname" class="label">Last Name*</label>
-						<input
+						<app-my-input
 							type="text"
-							id="lastname"
 							placeholder="Your last name"
-							class="input"
-						/>
+							name="lastname"
+							label="Last Name*"
+							[ngStyle]="{ fontSize: '16px' }"
+						></app-my-input>
 					</div>
 
 					<div class="input-wrap">
-						<label for="email" class="label">Email*</label>
-						<input
+						<app-my-input
 							type="email"
-							id="email"
-							class="input"
 							placeholder="Your working email"
-						/>
+							name="email"
+							label="Email*"
+							[ngStyle]="{ fontSize: '16px' }"
+						></app-my-input>
 					</div>
 
 					<div class="input-wrap">
-						<label for="phone" class="label">Phone</label>
-						<input
+						<app-my-input
 							type="phone"
-							id="phone"
-							class="input"
 							placeholder="Your phone number"
-						/>
+							name="phone"
+							label="Phone"
+							[ngStyle]="{ fontSize: '16px' }"
+						></app-my-input>
 					</div>
 
 					<div class="textarea-wrap">
-						<label for="message" class="label">Message*</label>
-						<textarea
-							id="message"
-							placeholder="Your message"
-						></textarea>
+						<label class="label">Message*
+							<textarea
+								placeholder="Your message"
+								name="message"
+							></textarea>
+						</label>
 					</div>
 
 					<div class="agree-and-button">
@@ -62,13 +63,14 @@
 							<app-my-checkbox
 								text="I agree to receive communications from Createx Online School"
 								maxWidth="287px"
+								[ngStyle]="{ fontSize: '16px' }"
 							></app-my-checkbox>
 						</div>
 
 						<div class="button-wrap">
-							<app-my-button type="submit"
-								>Send message</app-my-button
-							>
+							<app-my-button type="submit">
+								Send message
+							</app-my-button>
 						</div>
 					</div>
 				</form>

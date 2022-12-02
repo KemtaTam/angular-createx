@@ -1,12 +1,14 @@
 <mat-card>
-	<article class="article" [ngStyle]="{maxWidth: articleWidth}">
+	<article class="article" [ngStyle]="{ maxWidth: articleWidth }">
 		<div class="back-img-wrap">
 			<img
 				class="back-img"
 				appColorful
 				[src]="backImg"
 				[alt]="backImg | getAltFromSrc"
+				(click)="navigateToSinglePost()"
 			/>
+
 			<div class="type">
 				<img
 					[src]="articleTypeSrc[articleType]"

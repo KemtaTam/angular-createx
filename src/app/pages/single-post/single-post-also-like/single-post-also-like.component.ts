@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { WINDOW } from './../../../providers/window.provider';
+import { Router } from '@angular/router';
+import { Component, Inject, OnInit } from '@angular/core';
 
 import { Article } from './../../../components/article/article.component';
 
@@ -27,7 +29,7 @@ export class SinglePostAlsoLikeComponent implements OnInit {
 			text: 'Turpis sed at magna laoreet gravida consequat tortor placerat. Gravida vitae aliquet enim egestas dui...',
 		},
 		{
-			articleType: 'Article', 
+			articleType: 'Article',
 			backImg: 'assets/images/articles/chel.png',
 			category: 'Design',
 			date: 'August 8, 2020',
@@ -36,7 +38,15 @@ export class SinglePostAlsoLikeComponent implements OnInit {
 		},
 	];
 
-	constructor() {}
+	constructor(
+		private router: Router,
+		@Inject(WINDOW) private window: Window
+	) {}
 
 	ngOnInit(): void {}
+
+	navigateToBlog() {
+		this.router.navigate(['/blog']);
+		this.window.scroll(0, 0);
+	}
 }

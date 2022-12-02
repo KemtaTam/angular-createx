@@ -3,16 +3,10 @@
 		<app-title title="You may also like" subtitle="Our blog"></app-title>
 		<div class="b-wrapper">
 			<button>
-				<img
-					src="assets/images/Line-left.svg"
-					alt="Line-left"
-				/>
+				<img src="assets/images/Line-left.svg" alt="Line-left" />
 			</button>
 			<button>
-				<img
-					src="assets/images/Line-right.svg"
-					alt="Line-right"
-				/>
+				<img src="assets/images/Line-right.svg" alt="Line-right" />
 			</button>
 		</div>
 	</div>
@@ -32,6 +26,6 @@
 
 	<div class="more">
 		<h2>Do you want more articles, podcasts and videos?</h2>
-		<app-my-button>Go to blog</app-my-button>
+		<app-my-button (click)="navigateToBlog()">Go to blog</app-my-button>
 	</div>
 </section>

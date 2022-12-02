@@ -13,31 +13,26 @@
 			</header>
 
 			<form>
-				<label for="email_signin" class="label">Email</label>
-				<input
-					type="email"
-					id="email_signin"
-					placeholder="Your working email"
-					class="input"
-				/>
-
-				<label for="password-signin" class="label">Password</label>
-				<div class="password">
-					<input
-						[type]="isVisibleForPassword ? 'text' : 'password'"
-						id="password-signin"
-						class="input"
-					/>
-					<button
-						class="eye"
-						type="button"
-						(click)="isVisibleForPassword = !isVisibleForPassword"
-					>
-						<img src="assets/images/Eye.svg" alt="eye" />
-					</button>
+				<div class="input-wrap">
+					<app-my-input
+						idForInput="email_signin"
+						placeholder="Your working email"
+						type="email"
+						name="email"
+						label="Email"
+					></app-my-input>
+				</div>
+				<div class="input-wrap">
+					<app-my-input
+						idForInput="password-signin"
+						placeholder="Enter your password"
+						type="password"
+						name="password"
+						label="Password"
+					></app-my-input>
 				</div>
 
-				<div class="remember">
+				<div class="remember" data-form-el="form-el">
 					<div class="remember-wrap">
 						<app-my-checkbox
 							text="Keep me signed in"

@@ -7,63 +7,49 @@
 				</button>
 				<h2>Sign up</h2>
 				<p>
-					Registration takes less than a minute but gives you full control over
-					your studying.
+					Registration takes less than a minute but gives you full
+					control over your studying.
 				</p>
 			</header>
 			<form>
-				<label for="fullname" class="label">Full Name</label>
-				<input
-					type="text"
-					id="fullname"
-					placeholder="Your full name"
-					class="input"
-				/>
-
-				<label for="email-signup" class="label">Email</label>
-				<input
-					type="email"
-					id="email-signup"
-					placeholder="Your working email"
-					class="input"
-				/>
-
-				<label for="password" class="label">Password</label>
-				<div class="password">
-					<input
-						[type]="isVisibleForPassword ? 'text' : 'password'"
-						id="password"
-						class="input"
-					/>
-					<button
-						class="eye"
-						type="button"
-						(click)="isVisibleForPassword = !isVisibleForPassword"
-					>
-						<img src="assets/images/Eye.svg" alt="eye" />
-					</button>
+				<div class="input-wrap">
+					<app-my-input
+						type="text"
+						placeholder="Your full name"
+						name="Name"
+						label="Full Name"
+					></app-my-input>
 				</div>
 
-				<label for="confirm-password" class="label">Confirm Password</label>
-				<div class="password">
-					<input
-						[type]="isVisibleForConfirmPassword ? 'text' : 'password'"
-						id="confirm-password"
-						class="input"
-					/>
-					<button
-						class="eye"
-						type="button"
-						(click)="isVisibleForConfirmPassword = !isVisibleForConfirmPassword"
-					>
-						<img src="assets/images/Eye.svg" alt="eye" />
-					</button>
+				<div class="input-wrap">
+					<app-my-input
+						type="email"
+						placeholder="Your working email"
+						name="email"
+						label="Email"
+					></app-my-input>
 				</div>
-
+				<div class="input-wrap">
+					<app-my-input
+						type="password"
+						placeholder="Enter your password"
+						name="password"
+						label="Password"
+					></app-my-input>
+				</div>
+				<div class="input-wrap">
+					<app-my-input
+						type="password"
+						placeholder="Confirm your password"
+						name="password"
+						label="Confirm Password"
+					></app-my-input>
+				</div>
+				
 				<div class="remember">
 					<app-my-checkbox text="Remember me"></app-my-checkbox>
 				</div>
-				
+
 				<app-my-button type="submit">Sign up</app-my-button>
 			</form>
 

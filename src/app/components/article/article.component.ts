@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { WINDOW } from './../../providers/window.provider';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface Article {
 	articleType: 'Podcast' | 'Article' | 'Video';
@@ -44,7 +46,7 @@ export class ArticleComponent implements OnInit {
 	@Input() title = '';
 	@Input() text = '';
 
-	constructor() {}
+	constructor(private router: Router, @Inject(WINDOW) private window: Window) {}
 
 	ngOnInit(): void {
 		const img = new Image();
@@ -54,5 +56,10 @@ export class ArticleComponent implements OnInit {
 			const percentDif = (img.height - 300) / img.height;
 			this.articleWidth = img.width * (1 - percentDif) + 'px'
 		};
+	}
+
+	navigateToSinglePost(){
+		this.router.navigate(['/single-post']);
+		this.window.scroll(0, 0);
 	}
 }

@@ -13,7 +13,16 @@
 				</h1>
 				<form class="form">
 					<div class="input-button-wrap">
-						<input placeholder="Your working email" />
+						<div class="input-wrap">
+							<app-my-input
+								placeholder="Your working email"
+								name="email"
+								type="email"
+								[ngStyle]="{fontSize: '16px'}"
+								height="52px"
+							></app-my-input>
+						</div>
+
 						<app-my-button>Subscribe</app-my-button>
 					</div>
 					<app-my-checkbox
